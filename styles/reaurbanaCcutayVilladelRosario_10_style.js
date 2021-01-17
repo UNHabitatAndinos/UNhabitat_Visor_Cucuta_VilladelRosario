@@ -21,7 +21,7 @@ var style_reaurbanaCcutayVilladelRosario_10 = function(feature, resolution){
         labelText = String("");
     }
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(145,137,132,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(221,221,220,1.0)'}),
+        stroke: new ol.style.Stroke({color: 'rgba(145,145,145,0.7019607843137254)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 0}),fill: new ol.style.Fill({color: 'rgba(221,220,220,0.36470588235294116)'}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
