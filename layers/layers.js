@@ -201,7 +201,7 @@ var lyr_ComunasCcutaVilladelRosario_11 = new ol.layer.Vector({
                 declutter: true,
                 source:jsonSource_ComunasCcutaVilladelRosario_11, 
                 style: style_ComunasCcutaVilladelRosario_11,
-                interactive: true,
+                interactive: false,
                 title: '<img src="styles/legend/ComunasCcutaVilladelRosario_11.png" /> Comunas Cúcuta -  Villa del Rosario'
             });
 var format_LmitefornterizoconVenezuela_12 = new ol.format.GeoJSON();
@@ -215,7 +215,7 @@ var lyr_LmitefornterizoconVenezuela_12 = new ol.layer.Vector({
                 declutter: true,
                 source:jsonSource_LmitefornterizoconVenezuela_12, 
                 style: style_LmitefornterizoconVenezuela_12,
-                interactive: true,
+                interactive: false,
                 title: '<img src="styles/legend/LmitefornterizoconVenezuela_12.png" /> Límite fornterizo con Venezuela'
             });
 var group_BaseMap = new ol.layer.Group({
