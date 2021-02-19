@@ -30,12 +30,13 @@
 
         .container {
             position: absolute;
-            top: 20%;
+            top: 23%;
             left: 10px;
             z-index: 999;
             background-color: #FFFFFF;
             padding: 10px;
             border-radius: 7px;
+            font: 10px/12px Segoe UI, Segoe UI, Segoe UI;
         }
 
         #logoContainer {
@@ -57,23 +58,23 @@
             background: #ffffff;
             position: absolute;
             z-index: 999;
-            bottom: 30px;
+            bottom: 20px;
             left: 10px;
             padding: 0px 10px;
             width: 200px;
-            font-family: arial;
-            font-size: small;
             -webkit-border-radius: 4px 4px 4px 4px;
             border-radius: 4px 4px 4px 4px;
             -webkit-box-shadow: 0px 1px 5px rgba(153, 153, 153, 1);
             -moz-box-shadow: 0px 1px 5px rgba(153, 153, 153, 1);
             box-shadow: 0px 1px 5px rgba(153, 153, 153, 1);
             float: left;
+            font: 12px/12px Segoe UI, Segoe UI, Segoe UI;
+            text-align: left;
         }
 
         #legend,
         #colors {
-            font: 12px/14px Segoe UI, Segoe UI, Segoe UI;
+            font: 10px/12px Segoe UI, Segoe UI, Segoe UI;
             text-align: left;
         }
 
@@ -83,7 +84,7 @@
             background: #ffffff;
             background: rgba(255, 255, 255, 0.8);
             border: rgb(255, 255, 255);
-            font: 10px/14px Segoe UI, Segoe UI, Segoe UI;
+            font: 10px/12px Segoe UI, Segoe UI, Segoe UI;
             width: 200px;
             left: 10px;
             cursor: pointer;
@@ -136,35 +137,59 @@
     <p style="text-align: center; color: rgb(255, 255, 255);">
         <b>Caracterización territorial Cúcuta y Villa del Rosario<br/></b>
 </div>
-
-<div id='legend'>
+    <div id='legend'>
 </div>
 
 <div class="container">
+    <b>Seleccione indicador:</b>
     <div class="btn-group">
-        <input name="layers" type="radio" id="dis_salud" value="dis_salud" checked onclick='changeIndi(this);'>
-        <label for="dis_salud">Proximidad equipamientos de salud</label><br>
-        <input name="layers" type="radio" id="dis_educa" value="dis_educa" onclick='changeIndi(this);'>
-        <label for="dis_educa">Proximidad equipamientos de educación</label><br>
-        <input name="layers" type="radio" id="dis_biblio" value="dis_biblio" onclick='changeIndi(this);'>
-        <label for="dis_biblio">Proximidad bibliotecas</label><br>
-        <input name="layers" type="radio" id="dis_ep" value="dis_ep" onclick='changeIndi(this);'>
-        <label for="dis_ep">Proximidad espacio público</label><br>
-        <input name="layers" type="radio" id="viv_ade" value="viv_ade" onclick='changeIndi(this);'>
-        <label for="viv_ade">Vivienda adecuada</label><br>
-        <input name="layers" type="radio" id="default" value="default" onclick='changeIndi(this);'>
-        <label for="default">Área urbana Cúcuta y Villa del Rosario</label><br>
+        <input name="layers" type="radio" id="ZA_SALUD1" value="ZA_SALUD1" checked onclick='changeIndi(this);'>
+        <label for="ZA_SALUD1">Proximidad equipamientos de salud</label><br>
+        <input name="layers" type="radio" id="PM10" value="PM10" onclick='changeIndi(this);'>
+        <label for="PM10">Concentración de Pm10</label><br>
+        <input name="layers" type="radio" id="MORTALIDAD" value="MORTALIDAD" onclick='changeIndi(this);'>
+        <label for="PM10">Tasa mortalidad menores de 5 años</label><br>
+        <input name="layers" type="radio" id="ZA_EDUCA1" value="ZA_EDUCA1" onclick='changeIndi(this);'>
+        <label for="ZA_EDUCA1">Proximidad equipamientos de educación</label><br>
+        <input name="layers" type="radio" id="ZA_BIBLIO1" value="ZA_BIBLIO1" onclick='changeIndi(this);'>
+        <label for="ZA_BIBLIO1">Proximidad equipamientos culturales</label><br>
+        <input name="layers" type="radio" id="MAX_RANGO" value="MAX_RANGO" onclick='changeIndi(this);'>
+        <label for="MAX_RANGO">Edad probable de un habitante</label><br>
+        <input name="layers" type="radio" id="PRO_A_ESCO" value="PRO_A_ESCO" onclick='changeIndi(this);'>
+        <label for="PRO_A_ESCO">Años promedio educación</label><br>
+        <input name="layers" type="radio" id="MIXTICIDAD" value="MIXTICIDAD" onclick='changeIndi(this);'>
+        <label for="MIXTICIDAD">Diversidad usos del suelo</label><br>
+        <input name="layers" type="radio" id="ZA_ESPPUB1" value="ZA_ESPPUB1" onclick='changeIndi(this);'>
+        <label for="ZA_ESPPUB1">Proximidad espacio público</label><br>
+        <input name="layers" type="radio" id="HURTOS" value="HURTOS" onclick='changeIndi(this);'>
+        <label for="HURTOS">Tasa de hurtos</label><br>
+        <input name="layers" type="radio" id="HOMICIDIOS" value="HOMICIDIOS" onclick='changeIndi(this);'>
+        <label for="HOMICIDIOS">Tasa de homicidios</label><br>
+        <input name="layers" type="radio" id="VIV_ADE" value="VIV_ADE" onclick='changeIndi(this);'>
+        <label for="VIV_ADE">Vivienda adecuada</label><br>
+        <input name="layers" type="radio" id="AGUA_MEJOR" value="AGUA_MEJOR" onclick='changeIndi(this);'>
+        <label for="AGUA_MEJOR">Acceso a agua mejorada</label><br>
+        <input name="layers" type="radio" id="SANEAMIENT" value="SANEAMIENT" onclick='changeIndi(this);'>
+        <label for="SANEAMIENT">Acceso a saneamiento</label><br>
+        <input name="layers" type="radio" id="INTERNET" value="INTERNET" onclick='changeIndi(this);'>
+        <label for="INTERNET">Acceso a internet</label><br>
+        <input name="layers" type="radio" id="T_DESEMPL" value="T_DESEMPL" onclick='changeIndi(this);'>
+        <label for="T_DESEMPL">Tasa de desempleo</label><br>
+        <input name="layers" type="radio" id="EMP_IN_E" value="EMP_IN_E" onclick='changeIndi(this);'>
+        <label for="EMP_IN_E">Empleo informal estricto</label><br>
+        <input name="layers" type="radio" id="DESEM_JUV" value="DESEM_JUV" onclick='changeIndi(this);'>
+        <label for="DESEM_JUV">Desempleo juvenil</label><br>
+        
     </div>
 </div>
 
 
+<div id="logoContainer">
+    <img src="images/logo1.png" width="100%">
+</div>
+
 <div id="map">
-    <div id="logoContainer">
-        <img src="images/logo1.png" width="100%">
-    </div>
     <script src='src/map.js'></script>
-
-
 </div>
 
 

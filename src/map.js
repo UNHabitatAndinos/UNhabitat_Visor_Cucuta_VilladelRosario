@@ -34,33 +34,38 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
     this._div.innerHTML = (props ?
-        '<b> Manzana ' + props.id_manzana + '</b> <br />' +
-        '<b> Comuna ' + props.comuna + '</b> <br />' +
-        '<b> Viviendas ' + props.vivi_ocu + '</b> <br />' +
-        '<b> Hogares ' + props.hogares + '</b> <br />' +
-        '<b> Personas ' + props.personas + '</b> <br />' + '<br />' +
+        '<b> Manzana ' + props.COD_DANE_A + '</b> <br />' +
+        '<b> Comuna ' + props.COMUNA + '</b> <br />' +
+        '<b> Viviendas ' + props.VIVI_OCU + '</b> <br />' +
+        '<b> Hogares ' + props.HOGARES + '</b> <br />' +
+        '<b> Personas ' + props.PERSONAS + '</b> <br />' + '<br />' +  
         '<h4>Salud</h4>' +
-        '<b> Proximidad equipamientos de salud: </b> ' + props.dis_salud.toFixed(0) + ' m' + '<br />' + '<br />' +
+        '<b> Proximidad equipamientos de salud: </b> ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
+        '<b> Concentración de Pm10: </b> ' + props.PM10.toFixed(2) + ' µg/m3' + '<br />' +
+        '<b> Tasa mortalidad menores de 5 años: </b> ' + props.MORTALIDAD.toFixed(0) + ' %' + '<br />' + '<br />' +
         '<h4>Educación, cultura y diversidad </h4>' + '<br />' +
-        '<b> Proximidad equipamientos educativos: </b> ' + props.dis_educa.toFixed(0) + ' m' + '<br />' +
-        '<b> Proximidad equipamientos culturales: </b> ' + props.dis_biblio.toFixed(0) + ' m' + '<br />' +
-        '<b> Años promedio educación: </b> ' + props.pro_a_esco.toFixed(0) + ' años' + '<br />' +
-        '<b> Diversidad usos del suelo: </b> ' + props.mixticidad.toFixed(2) + '<br />' + '<br />' +
+        '<b> Proximidad equipamientos educativos: </b> ' + props.DIS_EDUCA.toFixed(0) + ' m' + '<br />' +
+        '<b> Proximidad equipamientos culturales: </b> ' + props.DIS_BIBLIO.toFixed(0) + ' m' + '<br />' +
+        '<b> Edad probable de un habitante: </b> ' + props.DES_RANGO + ' años' + '<br />' +
+        '<b> Años promedio educación: </b> ' + props.PRO_A_ESCO.toFixed(0) + ' años' + '<br />' +
+        '<b> Diversidad usos del suelo: </b> ' + props.MIXTICIDAD.toFixed(2) + '<br />' + '<br />' +
 
         '<h4>Espacios públicos, seguridad y recreación </h4>' +
-        '<b> Proximidad espacio público: </b> ' + props.dis_ep.toFixed(0) + ' m' + '<br />' + '<br />' +
+        '<b> Proximidad espacio público: </b> ' + props.DIS_EP.toFixed(0) + ' m' + '<br />'  +
+        '<b> Tasa de hurtos x 100 mil habitantes: </b> ' + props.HURTOS.toFixed(0) + '<br />' +
+        '<b> Tasa de homicidios x 100 mil habitantes: </b> ' + props.HOMICIDIOS.toFixed(0) + '<br />' + '<br />' +
 
         '<h4>Vivienda </h4>' +
-        '<b> Vivienda adecuada: </b> ' + props.viv_ade.toFixed(2) + ' %' + '<br />' +
-        '<b> Agua mejorada: </b> ' + props.agua_mejor.toFixed(0) + ' %' + '<br />' +
-        '<b> Saneamiento: </b> ' + props.saneamient.toFixed(0) + ' %' + '<br />' +
-        '<b> Electricidad: </b> ' + props.electrici.toFixed(0) + ' %' + '<br />' +
-        '<b> Internet: </b> ' + props.internet.toFixed(0) + ' %' + '<br />' + '<br />' +
+        '<b> Vivienda adecuada: </b> ' + props.VIV_ADE.toFixed(0) + ' %' + '<br />' +
+        '<b> Agua mejorada: </b> ' + props.AGUA_MEJOR.toFixed(0) + ' %' + '<br />' +
+        '<b> Saneamiento: </b> ' + props.SANEAMIENT.toFixed(0) + ' %' + '<br />' +
+        '<b> Electricidad: </b> ' + props.ELECTRICI.toFixed(0) + ' %' + '<br />' +
+        '<b> Internet: </b> ' + props.INTERNET.toFixed(0) + ' %' + '<br />' + '<br />' +
 
         '<h4>Oportunidades económicas </h4>' +
-        '<b> Desempleo: </b> ' + props.t_desempl.toFixed(0) + ' %' + '<br />' +
-        '<b> Empleo informal: </b> ' + props.emp_in_e.toFixed(0) + ' %' + '<br />' +
-        '<b> Desempleo juvenil: </b> ' + props.desem_juv.toFixed(0) + ' %' : 'Colocar cursor sobre una manzana');
+        '<b> Desempleo: </b> ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
+        '<b> Empleo informal estricto: </b> ' + props.EMP_IN_E.toFixed(0) + ' %' + '<br />' +
+        '<b> Desempleo juvenil: </b> ' + props.DESEM_JUV.toFixed(0) + ' %' : 'Colocar cursor sobre una manzana');
 };
 info.addTo(map);
 
@@ -135,76 +140,95 @@ function onEachFeature(feature, layer) {
 function style(feature) {
     return {
         weight: 0.6,
-        opacity: 0.4,
-        color: '#c3bfc2',
-        fillOpacity: 0.3,
-        fillColor: '#c3bfc2'
+        opacity: 0.5,
+        color: 'white',
+        fillOpacity: 0,
+        fillColor:0
     };
 }
+
 
 function changeLegend(props) {
     var _legend = document.getElementById('legend'); // create a div with a class "info"
     _legend.innerHTML = (props ?
-        `<p style="font-size: 12px"><strong>${props.title}</strong></p>
+        `<p style="font-size: 11px"><strong>${props.title}</strong></p>
             <p style="font-size: 10px">${props.subtitle}</p>
             <p id='colors'>
-                <span style='color:#c3bfc2'>▉</span>Sin información<br>
+                <span style='color:#c3bfc2'>▉</span>${props.elem6}<br>
                 <span style='color:#1a9641'>▉</span>${props.elem1}<br>
                 <span style='color:#a6d96a'>▉</span>${props.elem2}<br>
                 <span style='color:#f4f466'>▉</span>${props.elem3}<br>
                 <span style='color:#fdae61'>▉</span>${props.elem4}<br>
                 <span style='color:#d7191c'>▉</span>${props.elem5}
             </p>` :
-        `<p style="font-size: 12px"><strong>Proximidad</strong></p>
-            <p style="font-size: 10px">Distancia en m</p>
+        `<p style="font-size: 12px"><strong>Área urbana</strong></p>
             <p id='colors'>
-                <span style='color:#c3bfc2'>▉</span>Sin información<br>
-                <span style='color:#1a9641'>▉</span>Menor 300<br>
-                <span style='color:#a6d96a'>▉</span>301 - 501<br>
-                <span style='color:#f4f466'>▉</span>501 - 700<br>
-                <span style='color:#fdae61'>▉</span>701 - 1000<br>
-                <span style='color:#d7191c'>▉</span>Mayor 100
+                <span style='color:#c3bfc2'>▉</span>Manzanas<br>
             </p>`);
 }
 
 var legends = {
-    dis_salud: {
+    ZA_SALUD1: {
         title: "Proximidad equipamientos de salud",
-        subtitle: "Distancia en m",
-        elem1: "Menor 300",
-        elem2: "301 - 501",
-        elem3: "501 - 701",
-        elem4: "701 - 1000",
-        elem5: "Mayor 1000",
+        subtitle: "Pendiente",
+        elem1: "A nivel",
+        elem2: "Ligeramente inclinada",
+        elem3: "Moderadamente inclinada",
+        elem4: "Fuertemente incliniada",
+        elem5: "Escarpada",
+        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
     },
-    dis_educa: {
+    ZA_EDUCA1: {
         title: "Proximidad equipamientos de educación",
-        subtitle: "Distancia en m",
-        elem1: "Menor 300",
-        elem2: "301 - 501",
-        elem3: "501 - 701",
-        elem4: "701 - 1000",
-        elem5: "Mayor 1000",
+        subtitle: "Pendiente",
+        elem1: "A nivel",
+        elem2: "Ligeramente inclinada",
+        elem3: "Moderadamente inclinada",
+        elem4: "Fuertemente incliniada",
+        elem5: "Escarpada",
+        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
     },
-    dis_biblio: {
-        title: "Proximidad espacios públicos",
-        subtitle: "Distancia en m",
-        elem1: "Menor 300",
-        elem2: "301 - 501",
-        elem3: "501 - 701",
-        elem4: "701 - 1000",
-        elem5: "Mayor 1000",
+    ZA_BIBLIO1: {
+        title: "Proximidad equipamientos culturales",
+        subtitle: "Pendiente",
+        elem1: "A nivel",
+        elem2: "Ligeramente inclinada",
+        elem3: "Moderadamente inclinada",
+        elem4: "Fuertemente incliniada",
+        elem5: "Escarpada",
+        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
     },
-    dis_ep: {
-        title: "Proximidad espacios públicos",
-        subtitle: "Distancia en m",
-        elem1: "Menor 300",
-        elem2: "301 - 501",
-        elem3: "501 - 701",
-        elem4: "701 - 1000",
-        elem5: "Mayor 1000",
+    PRO_A_ESCO: {
+        title: "Años promedio educación",
+        subtitle: "años",
+        elem1: "Mayor 16",
+        elem2: "14 - 15",
+        elem3: "12 - 13",
+        elem4: "9 - 11",
+        elem5: "3 - 8",
+        elem6: "Sin información"
     },
-    viv_ade: {
+    MIXTICIDAD: {
+        title: "Diversidad usos del suelo",
+        subtitle: "Índice de Shanon",
+        elem1: "1.06 - 1.67",
+        elem2: "0.79 - 1.05",
+        elem3: "0.54 - 0.78",
+        elem4: "0.30 - 0.53",
+        elem5: "0.01 - 0.29",
+        elem6: "Sin información"
+    },
+    ZA_ESPPUB1: {
+        title: "Proximidad espacio público",
+        subtitle: "Pendiente",
+        elem1: "A nivel",
+        elem2: "Ligeramente inclinada",
+        elem3: "Moderadamente inclinada",
+        elem4: "Fuertemente incliniada",
+        elem5: "Escarpada",
+        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+    },
+    VIV_ADE: {
         title: "Vivienda Adecuada",
         subtitle: "% de Viviendas",
         elem1: "Mayor 86",
@@ -212,28 +236,226 @@ var legends = {
         elem3: "36 - 65",
         elem4: "16 - 35",
         elem5: "Menor 15",
-    }
+        elem6: "Sin información",
+    },
+    AGUA_MEJOR: {
+        title: "Acceso a agua mejorada",
+        subtitle: "% de Viviendas",
+        elem1: "Mayor 81",
+        elem2: "61 - 80",
+        elem3: "41 - 60",
+        elem4: "21 - 40",
+        elem5: "Menor 20",
+        elem6: "Sin información",
+    },
+    SANEAMIENT: {
+        title: "Acceso a saneamiento",
+        subtitle: "% de Viviendas",
+        elem1: "Mayor 81",
+        elem2: "61 - 80",
+        elem3: "41 - 60",
+        elem4: "21 - 40",
+        elem5: "Menor 20",
+        elem6: "Sin información"
+    },  
+    DESEM_JUV: {
+        title: "Desempleo juvenil",
+        subtitle: "% de Personas",
+        elem1: "Menor 4",
+        elem2: "5 - 13",
+        elem3: "14 - 24",
+        elem4: "25 - 46",
+        elem5: "Mayor 47",
+        elem6: "Sin información"
+    }, 
+    INTERNET: {
+        title: "Acceso a internet",
+        subtitle: "% de Viviendas",
+        elem1: "Mayor 86",
+        elem2: "52 - 85",
+        elem3: "33 - 51",
+        elem4: "14 - 32",
+        elem5: "Menor 13",
+        elem6: "Sin información"
+    }, 
+    T_DESEMPL: {
+        title: "Tasa de desempleo",
+        subtitle: "% de Personas",
+        elem1: "Menor 4",
+        elem2: "5 - 9",
+        elem3: "10 - 15",
+        elem4: "16 - 65",
+        elem5: "66 - 83",
+        elem6: "Sin información"
+    }, 
+    EMP_IN_E: {
+        title: "Empleo informal estricto",
+        subtitle: "% de Personas",
+        elem1: "Menor 5",
+        elem2: "6 - 12",
+        elem3: "13 - 25",
+        elem4: "26 - 53",
+        elem5: "54 - 100",
+        elem6: "Sin información"
+    }, 
+    PM10: {
+        title: "Concentración Pm10",
+        subtitle: "µg/m3",
+        elem1: "21 - 24",
+        elem2: "25 - 27",
+        elem3: "28 - 30",
+        elem4: "31 - 33",
+        elem5: "34 - 36",
+        elem6: "No aplica"
+    },
+    MAX_RANGO: {
+        title: "Edad probable de un habitante",
+        subtitle: "Rango de edad mayoritario",
+        elem1: "0 - 9 años",
+        elem2: "10 - 24 años",
+        elem3: "25 - 39 años",
+        elem4: "40 - 54 años",
+        elem5: "55 - 84 años",
+        elem6: "No aplica"
+    },
+    HURTOS: {
+        title: "Tasa de hurtos",
+        subtitle: "Hurtos x 100 mil habitantes",
+        elem1: "Menor 107",
+        elem2: "108 - 179",
+        elem3: "180 - 270",
+        elem4: "271 - 435",
+        elem5: "436 - 1550",
+        elem6: "No aplica"
+    },
+    HOMICIDIOS: {
+        title: "Tasa de homicidios",
+        subtitle: "Homicidios x 100 mil habitantes",
+        elem1: "6 - 10",
+        elem2: "11 - 15",
+        elem3: "16 - 18",
+        elem4: "19 - 23",
+        elem5: "24 - 51",
+        elem6: "No aplica"
+    },
 }
 
+
 var indi = L.geoJson(Manzana, {
-    style: legends.dis_salud,
+    style: legends.ZA_SALUD1,
 }).addTo(map);
 
-var currentStyle = 'dis_salud';
+var currentStyle = 'ZA_SALUD1';
+
+manzanas = L.geoJson(Manzana, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
 
 
 function setProColor(d) {
-    if (currentStyle === 'viv_ade') {
+    if (currentStyle === 'VIV_ADE') {
         return d > 85 ? '#1a9641' :
             d > 65 ? '#a6d96a' :
                 d > 35 ? '#f4f466' :
                     d > 15 ? '#fdae61' :
                         '#d7191c';
-    } else {
-        return d > 1000 ? '#d7191c' :
-            d > 700 ? '#fdae61' :
-                d > 500 ? '#f4f466' :
-                    d > 300 ? '#a6d96a' :
+    }else if (currentStyle === 'AGUA_MEJOR') {
+        return d > 80 ? '#1a9641' :
+            d > 60 ? '#a6d96a' :
+                d > 40 ? '#f4f466' :
+                    d > 20 ? '#fdae61' :
+                        '#d7191c';
+    } 
+    else if (currentStyle === 'SANEAMIENT') {
+        return d > 80 ? '#1a9641' :
+            d > 60 ? '#a6d96a' :
+                d > 40 ? '#f4f466' :
+                    d > 20 ? '#fdae61' :
+                        '#d7191c';
+    }
+    else if (currentStyle === 'PRO_A_ESCO') {
+        return d > 15 ? '#1a9641' :
+            d > 13 ? '#a6d96a' :
+                d > 11 ? '#f4f466' :
+                    d > 8 ? '#fdae61' :
+                        '#d7191c';
+    }
+    else if (currentStyle === 'MIXTICIDAD') {
+        return d > 1.05 ? '#1a9641' :
+            d > 0.78 ? '#a6d96a' :
+                d > 0.53 ? '#f4f466' :
+                    d > 0.29 ? '#fdae61' :
+                        '#d7191c';
+    }
+    else if (currentStyle === 'DESEM_JUV') {
+                        return d > 46 ? '#d7191c' :
+                        d > 24 ? '#fdae61' :
+                            d > 13 ? '#f4f466' :
+                                d > 4 ? '#a6d96a':
+                                '#1a9641';
+    }
+    else if (currentStyle === 'INTERNET') {
+        return d > 85 ? '#1a9641' :
+            d > 51 ? '#a6d96a' :
+                d > 32 ? '#f4f466' :
+                    d > 13 ? '#fdae61' :
+                        '#d7191c';
+    }
+    else if (currentStyle === 'T_DESEMPL') {
+        return d > 65 ? '#d7191c' :
+                        d > 15 ? '#fdae61' :
+                            d > 9 ? '#f4f466' :
+                                d > 4 ? '#a6d96a':
+                                '#1a9641';
+    }
+    else if (currentStyle === 'EMP_IN_E') {
+        return d > 53 ? '#d7191c' :
+            d > 25 ? '#fdae61' :
+                d > 12 ? '#f4f466' :
+                    d > 5 ? '#a6d96a':
+                    '#1a9641';
+    }
+    else if (currentStyle === 'PM10') {
+        return d > 33 ? '#d7191c' :
+            d > 30 ? '#fdae61' :
+                d > 27 ? '#f4f466' :
+                    d > 24 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'MORTALIDAD') {
+        return d > 7 ? '#d7191c' :
+            d > 5 ? '#fdae61' :
+                d > 3 ? '#f4f466' :
+                    d > 1 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'MAX_RANGO') {
+        return d > 11 ? '#d7191c' :
+            d > 8 ? '#fdae61' :
+                d > 5 ? '#f4f466' :
+                    d > 2 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'HURTOS') {
+        return d > 435 ? '#d7191c' :
+            d > 270 ? '#fdae61' :
+                d > 179 ? '#f4f466' :
+                    d > 107 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'HOMICIDIOS') {
+        return d > 23 ? '#d7191c' :
+            d > 18 ? '#fdae61' :
+                d > 15 ? '#f4f466' :
+                    d > 10 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else {
+        return d > 4 ? '#d7191c' :
+            d > 3 ? '#fdae61' :
+                d > 2 ? '#f4f466' :
+                    d > 1 ? '#a6d96a' :
                         '#1a9641';
     }
 
@@ -243,9 +465,9 @@ function fillColor(feature) {
     return {
         fillColor: (currentStyle && currentStyle !== 'default' && feature.properties[currentStyle]) ? setProColor(feature.properties[currentStyle]) : '#c3bfc2',
         weight: 0.6,
-        opacity: 0.4,
-        color: (currentStyle && currentStyle !== 'default') ? 'white' : '#c3bfc2',
-        fillOpacity: (currentStyle && currentStyle !== 'default') ? 0.9 : 0.3,
+        opacity: 0.1,
+        color: (currentStyle && currentStyle !== 'default') ? 'white' : '#c3bfc2', 
+        fillOpacity: (currentStyle && currentStyle !== 'default') ? 0.9 : 0.5,
     };
 }
 
@@ -254,21 +476,18 @@ function changeIndi(style) {
     indi.setStyle(fillColor);
     changeLegend((style.value && legends[style.value]) ? legends[style.value] :
         {
-            title: "Proximidad equipamientos de salud",
-            subtitle: "Distancia en m",
-            elem1: "Menor 300",
-            elem2: "301 - 501",
-            elem3: "501 - 701",
-            elem4: "701 - 1000",
-            elem5: "Mayor 1001",
+            title: "Área urbana",
+            subtitle: "Cúcuta y Villa del Rosario",
+            elem1: "No aplica",
+            elem2: "No aplica",
+            elem3: "No aplica",
+            elem4: "No aplica",
+            elem5: "No aplica",
+            elem6: "Manzanas",
+            
         });
 }
 
-
-manzanas = L.geoJson(Manzana, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
 
 
 var baseMaps = {
@@ -279,9 +498,8 @@ var baseMaps = {
 
 // Defines the overlay maps. For now this variable is empty, because we haven't created any overlay layers
 var overlayMaps = {
-    'Manzanas': manzanas,
-    'Comunas': comu,
-    'Límite fronterizo con Venezuela': lim
+    //'Comunas': comu,
+    //'Límite fronterizo con Venezuela': lim
 };
 
 // Adds a Leaflet layer control, using basemaps and overlay maps defined above
@@ -289,11 +507,10 @@ var layersControl = new L.Control.Layers(baseMaps, overlayMaps, {
     collapsed: true,
 });
 map.addControl(layersControl);
-changeIndi({value: 'dis_salud'});
+changeIndi({value: 'ZA_SALUD1'});
 
 
 function popupText(feature, layer) {
-
     layer.bindPopup('<strong>Comuna: </strong>' + feature.properties.comuna + '<br />')
 }
     
