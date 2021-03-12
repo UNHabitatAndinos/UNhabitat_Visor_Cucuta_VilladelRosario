@@ -4,6 +4,10 @@ var map = L.map('map', {
     zoom: 12.5,
 });
 
+L.easyButton('<img src="/data/fullscreen.png">', function (btn, map) {
+    var cucu = [7.9037, -72.51];
+    map.setView(cucu, 13);
+}).addTo(map);
 
 var esriAerialUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services' +
     '/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -18,10 +22,7 @@ var opens = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
 });
 
-L.easyButton('<img src="/data/fullscreen.png">', function (btn, map) {
-    var cucu = [7.9037, -72.51];
-    map.setView(cucu, 13);
-}).addTo(map);
+
 
 var info = L.control();
 
@@ -38,7 +39,8 @@ info.update = function (props) {
         '<b> Comuna ' + props.COMUNA + '</b> <br />' +
         '<b> Viviendas ' + props.VIVI_OCU + '</b> <br />' +
         '<b> Hogares ' + props.HOGARES + '</b> <br />' +
-        '<b> Personas ' + props.PERSONAS + '</b> <br />' + '<br />' +  
+        '<b> Personas ' + props.PERSONAS + '</b> <br />' +  
+        '<b> Población de origen Venezuela ' + props.VENEZOLANO + '</b> <br />' + '<br />' +  
         '<h4>Salud</h4>' +
         '<b> Proximidad equipamientos de salud: </b> ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
         '<b> Concentración de Pm10: </b> ' + props.PM10.toFixed(2) + ' µg/m3' + '<br />' +
@@ -316,7 +318,7 @@ var legends = {
         elem3: "25 - 39 años",
         elem4: "40 - 54 años",
         elem5: "55 - 84 años",
-        elem6: "No aplica"
+        elem6: "Sin información"
     },
     HURTOS: {
         title: "Tasa de hurtos",
@@ -337,6 +339,16 @@ var legends = {
         elem4: "19 - 23",
         elem5: "24 - 51",
         elem6: "No aplica"
+    },
+    VENEZOLANO: {
+        title: "Población de origen Venezuela",
+        subtitle: "Personas",
+        elem1: "1 - 5",
+        elem2: "6 - 25",
+        elem3: "26 - 77",
+        elem4: "78 - 100",
+        elem5: "100 - 205",
+        elem6: "Sin información"
     },
 }
 
@@ -449,6 +461,20 @@ function setProColor(d) {
             d > 18 ? '#fdae61' :
                 d > 15 ? '#f4f466' :
                     d > 10 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'ESTRATO') {
+        return d > 23 ? '#d7191c' :
+            d > 18 ? '#fdae61' :
+                d > 15 ? '#f4f466' :
+                    d > 10 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'VENEZOLANO') {
+        return d > 100 ? '#d7191c' :
+            d > 77 ? '#fdae61' :
+                d > 25 ? '#f4f466' :
+                    d > 5 ? '#a6d96a' :
                     '#1a9641';
     }
     else {
