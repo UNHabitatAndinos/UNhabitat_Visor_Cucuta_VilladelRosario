@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
-    <link rel="stylesheet" href="src/leaflet-tag-filter-button.css">
 
     <style>
 
@@ -126,7 +125,6 @@
 <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
-<script src="src/leaflet-tag-filter-button.js"></script>
 <script src="data/Manzana.js"></script>
 <script src="data/comunas.js"></script>
 <script src="data/limiteven.js"></script>
@@ -173,12 +171,16 @@
         <label for="SANEAMIENT">Acceso a saneamiento</label><br>
         <input name="layers" type="radio" id="INTERNET" value="INTERNET" onclick='changeIndi(this);'>
         <label for="INTERNET">Acceso a internet</label><br>
+        <input name="layers" type="radio" id="ESTRATO" value="ESTRATO" onclick='changeIndi(this);'>
+        <label for="ESTRATO">Estratos</label><br>
         <input name="layers" type="radio" id="T_DESEMPL" value="T_DESEMPL" onclick='changeIndi(this);'>
         <label for="T_DESEMPL">Tasa de desempleo</label><br>
         <input name="layers" type="radio" id="EMP_IN_E" value="EMP_IN_E" onclick='changeIndi(this);'>
         <label for="EMP_IN_E">Empleo informal estricto</label><br>
         <input name="layers" type="radio" id="DESEM_JUV" value="DESEM_JUV" onclick='changeIndi(this);'>
         <label for="DESEM_JUV">Desempleo juvenil</label><br>
+        <input name="layers" type="radio" id="VENEZOLANO" value="VENEZOLANO" onclick='changeIndi(this);'>
+        <label for="VENEZOLANO">Población de origen Venezuela</label><br>
         
     </div>
 </div>
