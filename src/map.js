@@ -67,7 +67,7 @@ info.update = function (props) {
         '<h4>Oportunidades económicas </h4>' +
         '<b> Desempleo: </b> ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
         '<b> Empleo informal estricto: </b> ' + props.EMP_IN_E.toFixed(0) + ' %' + '<br />' +
-        '<b> Desempleo juvenil: </b> ' + props.DESEM_JUV.toFixed(0) + ' %' : 'Colocar cursor sobre una manzana');
+        '<b> Desempleo juvenil: </b> ' + props.DESEM_JUV.toFixed(0) + ' %' : 'Seleccione una manzana');
 };
 info.addTo(map);
 
@@ -161,7 +161,8 @@ function changeLegend(props) {
                 <span style='color:#a6d96a'>▉</span>${props.elem2}<br>
                 <span style='color:#f4f466'>▉</span>${props.elem3}<br>
                 <span style='color:#fdae61'>▉</span>${props.elem4}<br>
-                <span style='color:#d7191c'>▉</span>${props.elem5}
+                <span style='color:#d7191c'>▉</span>${props.elem5}<br><br>
+                <span style='color:#000000'>Fuente: </span>${props.elem7}<br>
             </p>` :
         `<p style="font-size: 12px"><strong>Área urbana</strong></p>
             <p id='colors'>
@@ -179,6 +180,7 @@ var legends = {
         elem4: "Fuertemente incliniada",
         elem5: "Escarpada",
         elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem7: "DANE, SISPRO",
     },
     ZA_EDUCA1: {
         title: "Proximidad equipamientos de educación",
@@ -189,6 +191,7 @@ var legends = {
         elem4: "Fuertemente incliniada",
         elem5: "Escarpada",
         elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem7: "DANE, Google Maps",
     },
     ZA_BIBLIO1: {
         title: "Proximidad equipamientos culturales",
@@ -199,6 +202,7 @@ var legends = {
         elem4: "Fuertemente incliniada",
         elem5: "Escarpada",
         elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem7: "DANE, Google Maps",
     },
     PRO_A_ESCO: {
         title: "Años promedio educación",
@@ -208,7 +212,8 @@ var legends = {
         elem3: "12 - 13",
         elem4: "9 - 11",
         elem5: "3 - 8",
-        elem6: "Sin información"
+        elem6: "Sin información",
+        elem7: "DANE Censo Nacional Población y Vivienda 2018",
     },
     MIXTICIDAD: {
         title: "Diversidad usos del suelo",
