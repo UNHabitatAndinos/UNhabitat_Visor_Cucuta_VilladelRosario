@@ -4,6 +4,10 @@ var map = L.map('map', {
     zoom: 12.5,
 });
 
+L.easyButton('<img src="/data/fullscreen.png">', function (btn, map) {
+    var cucu = [7.9037, -72.51];
+    map.setView(cucu, 13);
+}).addTo(map);
 
 var esriAerialUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services' +
     '/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -18,10 +22,7 @@ var opens = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
 });
 
-L.easyButton('<img src="/data/fullscreen.png">', function (btn, map) {
-    var cucu = [7.9037, -72.51];
-    map.setView(cucu, 13);
-}).addTo(map);
+
 
 var info = L.control();
 
@@ -38,7 +39,8 @@ info.update = function (props) {
         '<b> Comuna ' + props.COMUNA + '</b> <br />' +
         '<b> Viviendas ' + props.VIVI_OCU + '</b> <br />' +
         '<b> Hogares ' + props.HOGARES + '</b> <br />' +
-        '<b> Personas ' + props.PERSONAS + '</b> <br />' + '<br />' +  
+        '<b> Personas ' + props.PERSONAS + '</b> <br />' +  
+        '<b> Población de origen Venezuela ' + props.VENEZOLANO + '</b> <br />' + '<br />' +  
         '<h4>Salud</h4>' +
         '<b> Proximidad equipamientos de salud: </b> ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
         '<b> Concentración de Pm10: </b> ' + props.PM10.toFixed(2) + ' µg/m3' + '<br />' +
@@ -65,7 +67,7 @@ info.update = function (props) {
         '<h4>Oportunidades económicas </h4>' +
         '<b> Desempleo: </b> ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
         '<b> Empleo informal estricto: </b> ' + props.EMP_IN_E.toFixed(0) + ' %' + '<br />' +
-        '<b> Desempleo juvenil: </b> ' + props.DESEM_JUV.toFixed(0) + ' %' : 'Colocar cursor sobre una manzana');
+        '<b> Desempleo juvenil: </b> ' + props.DESEM_JUV.toFixed(0) + ' %' : 'Seleccione una manzana');
 };
 info.addTo(map);
 
@@ -159,7 +161,8 @@ function changeLegend(props) {
                 <span style='color:#a6d96a'>▉</span>${props.elem2}<br>
                 <span style='color:#f4f466'>▉</span>${props.elem3}<br>
                 <span style='color:#fdae61'>▉</span>${props.elem4}<br>
-                <span style='color:#d7191c'>▉</span>${props.elem5}
+                <span style='color:#d7191c'>▉</span>${props.elem5}<br><br>
+                <span style='color:#000000'>Fuente: </span>${props.elem7}<br>
             </p>` :
         `<p style="font-size: 12px"><strong>Área urbana</strong></p>
             <p id='colors'>
@@ -177,6 +180,7 @@ var legends = {
         elem4: "Fuertemente incliniada",
         elem5: "Escarpada",
         elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem7: "DANE, SISPRO",
     },
     ZA_EDUCA1: {
         title: "Proximidad equipamientos de educación",
@@ -187,6 +191,7 @@ var legends = {
         elem4: "Fuertemente incliniada",
         elem5: "Escarpada",
         elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem7: "DANE, Google Maps",
     },
     ZA_BIBLIO1: {
         title: "Proximidad equipamientos culturales",
@@ -197,6 +202,7 @@ var legends = {
         elem4: "Fuertemente incliniada",
         elem5: "Escarpada",
         elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem7: "DANE, Google Maps",
     },
     PRO_A_ESCO: {
         title: "Años promedio educación",
@@ -206,7 +212,8 @@ var legends = {
         elem3: "12 - 13",
         elem4: "9 - 11",
         elem5: "3 - 8",
-        elem6: "Sin información"
+        elem6: "Sin información",
+        elem7: "DANE Censo Nacional Población y Vivienda 2018",
     },
     MIXTICIDAD: {
         title: "Diversidad usos del suelo",
@@ -316,7 +323,7 @@ var legends = {
         elem3: "25 - 39 años",
         elem4: "40 - 54 años",
         elem5: "55 - 84 años",
-        elem6: "No aplica"
+        elem6: "Sin información"
     },
     HURTOS: {
         title: "Tasa de hurtos",
@@ -337,6 +344,16 @@ var legends = {
         elem4: "19 - 23",
         elem5: "24 - 51",
         elem6: "No aplica"
+    },
+    VENEZOLANO: {
+        title: "Población de origen Venezuela",
+        subtitle: "Personas",
+        elem1: "1 - 5",
+        elem2: "6 - 25",
+        elem3: "26 - 77",
+        elem4: "78 - 100",
+        elem5: "100 - 205",
+        elem6: "Sin información"
     },
 }
 
@@ -449,6 +466,20 @@ function setProColor(d) {
             d > 18 ? '#fdae61' :
                 d > 15 ? '#f4f466' :
                     d > 10 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'ESTRATO') {
+        return d > 23 ? '#d7191c' :
+            d > 18 ? '#fdae61' :
+                d > 15 ? '#f4f466' :
+                    d > 10 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'VENEZOLANO') {
+        return d > 100 ? '#d7191c' :
+            d > 77 ? '#fdae61' :
+                d > 25 ? '#f4f466' :
+                    d > 5 ? '#a6d96a' :
                     '#1a9641';
     }
     else {
