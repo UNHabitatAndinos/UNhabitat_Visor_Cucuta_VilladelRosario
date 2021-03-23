@@ -23,7 +23,6 @@ var opens = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.
 });
 
 
-
 var info = L.control();
 
 info.onAdd = function (map) {
@@ -156,13 +155,14 @@ function changeLegend(props) {
         `<p style="font-size: 11px"><strong>${props.title}</strong></p>
             <p style="font-size: 10px">${props.subtitle}</p>
             <p id='colors'>
-                <span style='color:#c3bfc2'>▉</span>${props.elem6}<br>
-                <span style='color:#1a9641'>▉</span>${props.elem1}<br>
-                <span style='color:#a6d96a'>▉</span>${props.elem2}<br>
-                <span style='color:#f4f466'>▉</span>${props.elem3}<br>
-                <span style='color:#fdae61'>▉</span>${props.elem4}<br>
-                <span style='color:#d7191c'>▉</span>${props.elem5}<br><br>
-                <span style='color:#000000'>Fuente: </span>${props.elem7}<br>
+                ${props.elem1}
+                ${props.elem2}
+                ${props.elem3}
+                ${props.elem4}
+                ${props.elem5}
+                ${props.elem6}
+                ${props.elem7}<br>
+                <span style='color:#000000'>Fuente: </span>${props.elem8}<br>
             </p>` :
         `<p style="font-size: 12px"><strong>Área urbana</strong></p>
             <p id='colors'>
@@ -174,186 +174,278 @@ var legends = {
     ZA_SALUD1: {
         title: "Proximidad equipamientos de salud",
         subtitle: "Pendiente",
-        elem1: "A nivel",
-        elem2: "Ligeramente inclinada",
-        elem3: "Moderadamente inclinada",
-        elem4: "Fuertemente incliniada",
-        elem5: "Escarpada",
-        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
-        elem7: "DANE, SISPRO",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>A nivel</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>Ligeramente inclinada</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>Moderadamente inclinada</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>Fuertemente inclinada</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Escarpada</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Por fuera de la zona de accesibilidad (> 500 m)</div>',
+        elem7: '',
+        elem8: "DANE, SISPRO",
     },
     ZA_EDUCA1: {
         title: "Proximidad equipamientos de educación",
         subtitle: "Pendiente",
-        elem1: "A nivel",
-        elem2: "Ligeramente inclinada",
-        elem3: "Moderadamente inclinada",
-        elem4: "Fuertemente incliniada",
-        elem5: "Escarpada",
-        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
-        elem7: "DANE, Google Maps",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>A nivel</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>Ligeramente inclinada</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>Moderadamente inclinada</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>Fuertemente inclinada</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Escarpada</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Por fuera de la zona de accesibilidad (> 500 m)</div>',
+        elem7: '',
+        elem8: "DANE, Google Maps",
     },
     ZA_BIBLIO1: {
         title: "Proximidad equipamientos culturales",
         subtitle: "Pendiente",
-        elem1: "A nivel",
-        elem2: "Ligeramente inclinada",
-        elem3: "Moderadamente inclinada",
-        elem4: "Fuertemente incliniada",
-        elem5: "Escarpada",
-        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
-        elem7: "DANE, Google Maps",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>A nivel</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>Ligeramente inclinada</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>Moderadamente inclinada</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>Fuertemente inclinada</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Escarpada</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Por fuera de la zona de accesibilidad (> 500 m)</div>',
+        elem7: '',
+        elem8: "DANE, Google Maps",
     },
     PRO_A_ESCO: {
         title: "Años promedio educación",
-        subtitle: "años",
-        elem1: "Mayor 16",
-        elem2: "14 - 15",
-        elem3: "12 - 13",
-        elem4: "9 - 11",
-        elem5: "3 - 8",
-        elem6: "Sin información",
-        elem7: "DANE Censo Nacional Población y Vivienda 2018",
+        subtitle: "Años",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 16</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>14 - 15</div>',
+        elem3: '<div><span  style= "color:#f4f466">▉</span>12 - 13</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>9 - 11</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>3 - 8</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
     MIXTICIDAD: {
         title: "Diversidad usos del suelo",
         subtitle: "Índice de Shanon",
-        elem1: "1.06 - 1.67",
-        elem2: "0.79 - 1.05",
-        elem3: "0.54 - 0.78",
-        elem4: "0.30 - 0.53",
-        elem5: "0.01 - 0.29",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>1.06 - 1.67</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>"0.79 - 1.05</div>',
+        elem3: '<div><span  style= "color:#f4f466">▉</span>0.54 - 0.78</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>0.30 - 0.53</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.01 - 0.29</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "Plan de Ordenamiento Territorial Cúcuta",
     },
     ZA_ESPPUB1: {
         title: "Proximidad espacio público",
         subtitle: "Pendiente",
-        elem1: "A nivel",
-        elem2: "Ligeramente inclinada",
-        elem3: "Moderadamente inclinada",
-        elem4: "Fuertemente incliniada",
-        elem5: "Escarpada",
-        elem6: "Por fuera de la zona de accesibilidad (> 500 m)",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>A nivel</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>Ligeramente inclinada</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>Moderadamente inclinada</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>Fuertemente inclinada</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Escarpada</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Por fuera de la zona de accesibilidad (> 500 m)</div>',
+        elem7: '',
+        elem8: "Plan de Ordenamiento Territorial Cúcuta",
     },
     VIV_ADE: {
         title: "Vivienda Adecuada",
         subtitle: "% de Viviendas",
-        elem1: "Mayor 86",
-        elem2: "66 - 85",
-        elem3: "36 - 65",
-        elem4: "16 - 35",
-        elem5: "Menor 15",
-        elem6: "Sin información",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 86</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>66 - 85</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>36 - 65</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>16 - 35</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Menor 15</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
     AGUA_MEJOR: {
         title: "Acceso a agua mejorada",
         subtitle: "% de Viviendas",
-        elem1: "Mayor 81",
-        elem2: "61 - 80",
-        elem3: "41 - 60",
-        elem4: "21 - 40",
-        elem5: "Menor 20",
-        elem6: "Sin información",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 81</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>61 - 80</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>41 - 60</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>21 - 40</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Menor 20</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
     SANEAMIENT: {
         title: "Acceso a saneamiento",
         subtitle: "% de Viviendas",
-        elem1: "Mayor 81",
-        elem2: "61 - 80",
-        elem3: "41 - 60",
-        elem4: "21 - 40",
-        elem5: "Menor 20",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 81</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>61 - 80</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>41 - 60</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>21 - 40</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Menor 20</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },  
     DESEM_JUV: {
         title: "Desempleo juvenil",
         subtitle: "% de Personas",
-        elem1: "Menor 4",
-        elem2: "5 - 13",
-        elem3: "14 - 24",
-        elem4: "25 - 46",
-        elem5: "Mayor 47",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Menor 4</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>5 - 13</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>14 - 24</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>25 - 46</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Mayor 47</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
     INTERNET: {
         title: "Acceso a internet",
         subtitle: "% de Viviendas",
-        elem1: "Mayor 86",
-        elem2: "52 - 85",
-        elem3: "33 - 51",
-        elem4: "14 - 32",
-        elem5: "Menor 13",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 86</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>52 - 85</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>33 - 51</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>14 - 32</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Mayor 13</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
     T_DESEMPL: {
         title: "Tasa de desempleo",
         subtitle: "% de Personas",
-        elem1: "Menor 4",
-        elem2: "5 - 9",
-        elem3: "10 - 15",
-        elem4: "16 - 65",
-        elem5: "66 - 83",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 4</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>5 - 9</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>10 - 15</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>16 - 65</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>66 - 83</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
     EMP_IN_E: {
         title: "Empleo informal estricto",
         subtitle: "% de Personas",
-        elem1: "Menor 5",
-        elem2: "6 - 12",
-        elem3: "13 - 25",
-        elem4: "26 - 53",
-        elem5: "54 - 100",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Menor 5</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>6 - 12</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>13 - 25</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>26 - 53</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>54 - 100</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
     PM10: {
         title: "Concentración Pm10",
         subtitle: "µg/m3",
-        elem1: "21 - 24",
-        elem2: "25 - 27",
-        elem3: "28 - 30",
-        elem4: "31 - 33",
-        elem5: "34 - 36",
-        elem6: "No aplica"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>21 - 24</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>25 - 27</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>28 - 30</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>31 - 33</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>34 - 36</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "CORPONOR",
     },
     MAX_RANGO: {
         title: "Edad probable de un habitante",
         subtitle: "Rango de edad mayoritario",
-        elem1: "0 - 9 años",
-        elem2: "10 - 24 años",
-        elem3: "25 - 39 años",
-        elem4: "40 - 54 años",
-        elem5: "55 - 84 años",
-        elem6: "Sin información"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 9 años</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>10 - 24 años</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>25 - 39 años</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>40 - 54 años</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>55 - 84 años</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
     HURTOS: {
         title: "Tasa de hurtos",
         subtitle: "Hurtos x 100 mil habitantes",
-        elem1: "Menor 107",
-        elem2: "108 - 179",
-        elem3: "180 - 270",
-        elem4: "271 - 435",
-        elem5: "436 - 1550",
-        elem6: "No aplica"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Menor 107</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>108 - 179</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>180 - 270</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>271 - 435</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>436 - 1550</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Policía Nacional 2019",
     },
     HOMICIDIOS: {
         title: "Tasa de homicidios",
         subtitle: "Homicidios x 100 mil habitantes",
-        elem1: "6 - 10",
-        elem2: "11 - 15",
-        elem3: "16 - 18",
-        elem4: "19 - 23",
-        elem5: "24 - 51",
-        elem6: "No aplica"
+        elem1: '<div><span  style= "color:#1a9641">▉</span>6 - 10</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>11 - 15</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>16 - 18</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>19 - 23</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>24 - 51</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Medicina Legal 2019",
     },
     VENEZOLANO: {
         title: "Población de origen Venezuela",
-        subtitle: "Personas",
-        elem1: "1 - 5",
-        elem2: "6 - 25",
-        elem3: "26 - 77",
-        elem4: "78 - 100",
-        elem5: "100 - 205",
-        elem6: "Sin información"
+        subtitle: "% Personas",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>1 - 5</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>6 - 25</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>26 - 77</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>78 - 100</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>100 - 205</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+   MORTALIDAD: {
+        title: "Tasa mortalidad menores de 5 años",
+        subtitle: "% Personas",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 1</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>2 - 3</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>4 - 5</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>6 - 7</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>8 - 14</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+    ESTRATO: {
+        title: "Estratificación socioeconómica",
+        subtitle: "Máximo conteo",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>Estrato 6</div>',
+        elem2: '<div><span  style= "color:#82E0AA">▉</span>Estrato 5</div>', 
+        elem3: '<div><span  style= "color:#a6d96a">▉</span>Estrato 4</div>',
+        elem4: '<div><span  style= "color:#f4f466">▉</span>Estrato 3</div>',
+        elem5: '<div><span  style= "color:#fdae61">▉</span>Estrato 2</div>',
+        elem6: '<div><span  style= "color:#d7191c">▉</span>Estrato 1</div>',
+        elem7: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+    MIX_ETNIAS: {
+        title: "Diversidad etnias y razas",
+        subtitle: "Índice de Shanon", 
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0.25 - 0.50</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.15 - 0.24</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>0.09 - 0.14</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>0.03 - 0.08</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.02</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+    MIX_EDU: {
+        title: "Diversidad nivel educativo",
+        subtitle: "Índice de Shanon", 
+        elem1: '<div><span  style= "color:#1a9641">▉</span>1.56 - 1.98</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>1.34 - 1.55</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>1.08 - 1.33</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>0.47 - 1.07</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.46</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+    MIX_EDAD: {
+        title: "Diversidad edades",
+        subtitle: "Índice de Shanon", 
+        elem1: '<div><span  style= "color:#1a9641">▉</span>1.51 - 1.77</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>1.39 - 1.50</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>1.18 - 1.38</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>0.51 - 1.17</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.50</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
 }
 
@@ -469,11 +561,13 @@ function setProColor(d) {
                     '#1a9641';
     }
     else if (currentStyle === 'ESTRATO') {
-        return d > 23 ? '#d7191c' :
-            d > 18 ? '#fdae61' :
-                d > 15 ? '#f4f466' :
-                    d > 10 ? '#a6d96a' :
-                    '#1a9641';
+        return d > 5 ? '#1a9641':
+            d > 4 ? '#82E0AA'  :
+            d > 3 ? '#a6d96a'  :
+                d > 2 ? '#f4f466' :
+                    d > 1 ? '#fdae61' :
+                    d > 0 ? '#d7191c':
+                    '#c3bfc2';
     }
     else if (currentStyle === 'VENEZOLANO') {
         return d > 100 ? '#d7191c' :
@@ -481,6 +575,27 @@ function setProColor(d) {
                 d > 25 ? '#f4f466' :
                     d > 5 ? '#a6d96a' :
                     '#1a9641';
+    }
+    else if (currentStyle === 'MIX_ETNIAS') {
+        return d > 0.24 ? '#1a9641' :
+            d > 0.14 ? '#a6d96a' :
+                d > 0.08 ? '#f4f466' :
+                    d > 0.02 ? '#fdae61' :
+                    '#d7191c';
+    }
+    else if (currentStyle === 'MIX_EDU') {
+        return d > 1.55 ? '#1a9641' :
+            d > 1.33 ? '#a6d96a' :
+                d > 1.07 ? '#f4f466' :
+                    d > 0.46 ? '#fdae61' :
+                    '#d7191c';
+    }
+    else if (currentStyle === 'MIX_EDAD') {
+        return d > 1.50 ? '#1a9641' :
+            d > 1.38 ? '#a6d96a' :
+                d > 1.17 ? '#f4f466' :
+                    d > 0.50 ? '#fdae61' :
+                    '#d7191c';
     }
     else {
         return d > 4 ? '#d7191c' :
