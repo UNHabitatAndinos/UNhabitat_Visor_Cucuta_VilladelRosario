@@ -4,7 +4,7 @@ var map = L.map('map', {
     zoom: 12.5,
 });
 
-L.easyButton('<img src="/data/fullscreen.png">', function (btn, map) {
+L.easyButton('<img src="images/fullscreen.png">', function (btn, map) {
     var cucu = [7.9037, -72.51];
     map.setView(cucu, 13);
 }).addTo(map);
@@ -39,11 +39,11 @@ info.update = function (props) {
         '<b> Viviendas ' + props.VIVI_OCU + '</b> <br />' +
         '<b> Hogares ' + props.HOGARES + '</b> <br />' +
         '<b> Personas ' + props.PERSONAS + '</b> <br />' +  
-        '<b> Población de origen Venezuela ' + props.VENEZOLANO + '</b> <br />' + '<br />' +  
+        '<b> Población de origen Venezuela ' + props.VENEZOLANO + '</b> <br />' +  '<br />' +  
+
         '<h4>Salud</h4>' +
         '<b> Proximidad equipamientos de salud: </b> ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
         '<b> Concentración de Pm10: </b> ' + props.PM10.toFixed(2) + ' µg/m3' + '<br />' +
-        '<b> Tasa mortalidad menores de 5 años: </b> ' + props.MORTALIDAD.toFixed(0) + ' %' + '<br />' + '<br />' +
         '<h4>Educación, cultura y diversidad </h4>' + '<br />' +
         '<b> Proximidad equipamientos educativos: </b> ' + props.DIS_EDUCA.toFixed(0) + ' m' + '<br />' +
         '<b> Proximidad equipamientos culturales: </b> ' + props.DIS_BIBLIO.toFixed(0) + ' m' + '<br />' +
@@ -65,7 +65,6 @@ info.update = function (props) {
 
         '<h4>Oportunidades económicas </h4>' +
         '<b> Desempleo: </b> ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
-        '<b> Empleo informal estricto: </b> ' + props.EMP_IN_E.toFixed(0) + ' %' + '<br />' +
         '<b> Desempleo juvenil: </b> ' + props.DESEM_JUV.toFixed(0) + ' %' : 'Seleccione una manzana');
 };
 info.addTo(map);
@@ -83,6 +82,7 @@ function stylel(feature) {
 
 var lim = L.geoJson(limiteven, {
     style: stylel,
+    onEachFeature: popupText1,
 }).addTo(map);
 
 function stylec(feature) {
@@ -92,7 +92,6 @@ function stylec(feature) {
         color: 'yellow',
         fillOpacity: 0,
         dashArray: '3',
-
     };
 }
 
@@ -142,9 +141,8 @@ function style(feature) {
     return {
         weight: 0.6,
         opacity: 0.5,
-        color: 'white',
+        color: '#ffffff00',
         fillOpacity: 0,
-        fillColor:0
     };
 }
 
@@ -223,7 +221,7 @@ var legends = {
         title: "Diversidad usos del suelo",
         subtitle: "Índice de Shanon",
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.06 - 1.67</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>"0.79 - 1.05</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.79 - 1.05</div>',
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.54 - 0.78</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>0.30 - 0.53</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>0.01 - 0.29</div>',
@@ -315,18 +313,6 @@ var legends = {
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
-    EMP_IN_E: {
-        title: "Empleo informal estricto",
-        subtitle: "% de Personas",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>Menor 5</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>6 - 12</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>13 - 25</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>26 - 53</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>54 - 100</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
-        elem7: '',
-        elem8: "DANE Censo Nacional Población y Vivienda 2018",
-    }, 
     PM10: {
         title: "Concentración Pm10",
         subtitle: "µg/m3",
@@ -383,18 +369,6 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>26 - 77</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>78 - 100</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>100 - 205</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
-        elem7: '',
-        elem8: "DANE Censo Nacional Población y Vivienda 2018",
-    },
-   MORTALIDAD: {
-        title: "Tasa mortalidad menores de 5 años",
-        subtitle: "% Personas",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 1</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>2 - 3</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>4 - 5</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>6 - 7</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>8 - 14</div>',
         elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -518,25 +492,11 @@ function setProColor(d) {
                                 d > 4 ? '#a6d96a':
                                 '#1a9641';
     }
-    else if (currentStyle === 'EMP_IN_E') {
-        return d > 53 ? '#d7191c' :
-            d > 25 ? '#fdae61' :
-                d > 12 ? '#f4f466' :
-                    d > 5 ? '#a6d96a':
-                    '#1a9641';
-    }
     else if (currentStyle === 'PM10') {
         return d > 33 ? '#d7191c' :
             d > 30 ? '#fdae61' :
                 d > 27 ? '#f4f466' :
                     d > 24 ? '#a6d96a' :
-                    '#1a9641';
-    }
-    else if (currentStyle === 'MORTALIDAD') {
-        return d > 7 ? '#d7191c' :
-            d > 5 ? '#fdae61' :
-                d > 3 ? '#f4f466' :
-                    d > 1 ? '#a6d96a' :
                     '#1a9641';
     }
     else if (currentStyle === 'MAX_RANGO') {
@@ -612,7 +572,7 @@ function fillColor(feature) {
         fillColor: (currentStyle && currentStyle !== 'default' && feature.properties[currentStyle]) ? setProColor(feature.properties[currentStyle]) : '#c3bfc2',
         weight: 0.6,
         opacity: 0.1,
-        color: (currentStyle && currentStyle !== 'default') ? 'white' : '#c3bfc2', 
+        color: (currentStyle && currentStyle !== 'default') ? '#ffffff00' : '#c3bfc2', 
         fillOpacity: (currentStyle && currentStyle !== 'default') ? 0.9 : 0.5,
     };
 }
@@ -622,19 +582,9 @@ function changeIndi(style) {
     indi.setStyle(fillColor);
     changeLegend((style.value && legends[style.value]) ? legends[style.value] :
         {
-            title: "Área urbana",
-            subtitle: "Cúcuta y Villa del Rosario",
-            elem1: "No aplica",
-            elem2: "No aplica",
-            elem3: "No aplica",
-            elem4: "No aplica",
-            elem5: "No aplica",
-            elem6: "Manzanas",
             
         });
 }
-
-
 
 var baseMaps = {
     'Esri Satellite': esriAerial,
@@ -655,10 +605,10 @@ var layersControl = new L.Control.Layers(baseMaps, overlayMaps, {
 map.addControl(layersControl);
 changeIndi({value: 'ZA_SALUD1'});
 
-
 function popupText(feature, layer) {
     layer.bindPopup('<strong>Comuna: </strong>' + feature.properties.comuna + '<br />')
 }
-    
 
-
+function popupText1(feature, layer) {
+    layer.bindPopup('<strong>Límite fronterizo</strong>')
+}
