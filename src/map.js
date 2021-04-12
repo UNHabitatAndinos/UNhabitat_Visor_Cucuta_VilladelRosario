@@ -34,16 +34,25 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
     this._div.innerHTML = (props ?
-        '<b> Manzana ' + props.COD_DANE_A + '</b> <br />' +
+        '<b> Identificador Manzana ' + props.COD_DANE_A + '</b> <br />' +
         '<b> Comuna ' + props.COMUNA + '</b> <br />' +
         '<b> Viviendas ' + props.VIVI_OCU + '</b> <br />' +
         '<b> Hogares ' + props.HOGARES + '</b> <br />' +
         '<b> Personas ' + props.PERSONAS + '</b> <br />' +  
         '<b> Población de origen Venezuela ' + props.VENEZOLANO + '</b> <br />' +  '<br />' +  
 
+        '<h4>Vivienda </h4>' +
+        '<b> Vivienda adecuada: </b> ' + props.VIV_ADE.toFixed(0) + ' %' + '<br />' +
+        '<b> Hacinamiento: </b> ' + props.HACINAMI.toFixed(0) + ' %' + '<br />' +
+        '<b> Agua mejorada: </b> ' + props.AGUA_MEJOR.toFixed(0) + ' %' + '<br />' +
+        '<b> Saneamiento: </b> ' + props.SANEAMIENT.toFixed(0) + ' %' + '<br />' +
+        '<b> Electricidad: </b> ' + props.ELECTRICI.toFixed(0) + ' %' + '<br />' +
+        '<b> Internet: </b> ' + props.INTERNET.toFixed(0) + ' %' + '<br />' + '<br />' +
+
         '<h4>Salud</h4>' +
         '<b> Proximidad equipamientos de salud: </b> ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
-        '<b> Concentración de Pm10: </b> ' + props.PM10.toFixed(2) + ' µg/m3' + '<br />' +
+        '<b> Concentración de Pm10: </b> ' + props.PM10.toFixed(2) + ' µg/m3' + '</b> <br />' +  '<br />' +  
+        
         '<h4>Educación, cultura y diversidad </h4>' + '<br />' +
         '<b> Proximidad equipamientos educativos: </b> ' + props.DIS_EDUCA.toFixed(0) + ' m' + '<br />' +
         '<b> Proximidad equipamientos culturales: </b> ' + props.DIS_BIBLIO.toFixed(0) + ' m' + '<br />' +
@@ -56,12 +65,6 @@ info.update = function (props) {
         '<b> Tasa de hurtos x 100 mil habitantes: </b> ' + props.HURTOS.toFixed(0) + '<br />' +
         '<b> Tasa de homicidios x 100 mil habitantes: </b> ' + props.HOMICIDIOS.toFixed(0) + '<br />' + '<br />' +
 
-        '<h4>Vivienda </h4>' +
-        '<b> Vivienda adecuada: </b> ' + props.VIV_ADE.toFixed(0) + ' %' + '<br />' +
-        '<b> Agua mejorada: </b> ' + props.AGUA_MEJOR.toFixed(0) + ' %' + '<br />' +
-        '<b> Saneamiento: </b> ' + props.SANEAMIENT.toFixed(0) + ' %' + '<br />' +
-        '<b> Electricidad: </b> ' + props.ELECTRICI.toFixed(0) + ' %' + '<br />' +
-        '<b> Internet: </b> ' + props.INTERNET.toFixed(0) + ' %' + '<br />' + '<br />' +
 
         '<h4>Oportunidades económicas </h4>' +
         '<b> Desempleo: </b> ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
@@ -213,7 +216,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>12 - 13</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>9 - 11</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>3 - 8</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
@@ -224,8 +227,8 @@ var legends = {
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.79 - 1.05</div>',
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.54 - 0.78</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>0.30 - 0.53</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>0.01 - 0.29</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.29</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin diversidad</div>',
         elem7: '',
         elem8: "Plan de Ordenamiento Territorial Cúcuta",
     },
@@ -249,7 +252,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>36 - 65</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>16 - 35</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>Menor 15</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin acceso vivienda adecuada</div>',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
@@ -261,7 +264,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>41 - 60</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>21 - 40</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>Menor 20</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin acceso a agua mejorada</div>',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
@@ -273,7 +276,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>41 - 60</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>21 - 40</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>Menor 20</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin acceso a saneamiento</div>',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },  
@@ -297,7 +300,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>33 - 51</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>14 - 32</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>Mayor 13</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin acceso a internet</div>',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
@@ -333,7 +336,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>25 - 39 años</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>40 - 54 años</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>55 - 84 años</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
@@ -382,7 +385,7 @@ var legends = {
         elem4: '<div><span  style= "color:#f4f466">▉</span>Estrato 3</div>',
         elem5: '<div><span  style= "color:#fdae61">▉</span>Estrato 2</div>',
         elem6: '<div><span  style= "color:#d7191c">▉</span>Estrato 1</div>',
-        elem7: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '<div><span  style= "color:#c3bfc2">▉</span>Sin estrato</div>',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
     MIX_ETNIAS: {
@@ -405,7 +408,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>1.08 - 1.33</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>0.47 - 1.07</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.46</div>',
-        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
@@ -421,14 +424,49 @@ var legends = {
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
+    MIX_EST: {
+        title: "Diversidad ingresos",
+        subtitle: "Índice de Shanon", 
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0.78 - 1.52</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.55 - 0.77</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>0.34 - 0.54</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>0.13 - 0.33</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.12</div>',
+        elem6: '<div><span  style= "color:#c3bfc2">▉</span>Sin información</div>',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+    DENSIDAD: {
+        title: "Densidad residencial",
+        subtitle: "Población x m2", 
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0.000 - 0.007</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.008 - 0.014</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>0.015 - 0.020</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>0.021 - 0.040</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0.041 - 0.540</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
+    INDICE: {
+        title: "Marcador potencial integración urbana",
+        subtitle: "%", 
+        elem1: '<div><span  style= "color:#FCF9BB">▉</span>71.13 - 80.85</div>',
+        elem2: '<div><span  style= "color:#FE9D6C">▉</span>66.30 - 71.12</div>', 
+        elem3: '<div><span  style= "color:#CA3E72">▉</span>60.89 - 66.29</div>',
+        elem4: '<div><span  style= "color:#862781">▉</span>53.29 - 60.88</div>',
+        elem5: '<div><span  style= "color:#2A115C">▉</span>35.98 - 53.28</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
 }
 
-
 var indi = L.geoJson(Manzana, {
-    style: legends.ZA_SALUD1,
+    style: legends.INDICE,
 }).addTo(map);
 
-var currentStyle = 'ZA_SALUD1';
+var currentStyle = 'INDICE';
 
 manzanas = L.geoJson(Manzana, {
     style: style,
@@ -550,12 +588,33 @@ function setProColor(d) {
                     d > 0.46 ? '#fdae61' :
                     '#d7191c';
     }
+    else if (currentStyle === 'MIX_EST') {
+        return d > 0.77 ? '#1a9641' :
+            d > 0.54 ? '#a6d96a' :
+                d > 0.33 ? '#f4f466' :
+                    d > 0.12 ? '#fdae61' :
+                    '#d7191c';
+    }
     else if (currentStyle === 'MIX_EDAD') {
         return d > 1.50 ? '#1a9641' :
             d > 1.38 ? '#a6d96a' :
                 d > 1.17 ? '#f4f466' :
                     d > 0.50 ? '#fdae61' :
                     '#d7191c';
+    }
+    else if (currentStyle === 'DENSIDAD') {
+        return d > 0.040 ? '#d7191c' :
+            d > 0.020 ? '#fdae61' :
+                d > 0.014 ? '#f4f466' :
+                    d > 0.007 ? '#a6d96a' :
+                    '#1a9641';
+    }
+    else if (currentStyle === 'INDICE') {
+        return d > 71.12 ? '#FCF9BB' :
+            d > 66.29 ? '#FE9D6C' :
+                d > 60.88 ? '#CA3E72' :
+                    d > 53.28 ? '#862781' :
+                    '#2A115C';
     }
     else {
         return d > 4 ? '#d7191c' :
@@ -603,12 +662,12 @@ var layersControl = new L.Control.Layers(baseMaps, overlayMaps, {
     collapsed: true,
 });
 map.addControl(layersControl);
-changeIndi({value: 'ZA_SALUD1'});
+changeIndi({value: 'INDICE'});
 
 function popupText(feature, layer) {
     layer.bindPopup('<strong>Comuna: </strong>' + feature.properties.comuna + '<br />')
 }
 
 function popupText1(feature, layer) {
-    layer.bindPopup('<strong>Límite fronterizo</strong>')
+    layer.bindPopup('<strong>Límite fronterizo <br /> con Venezuela</strong>')
 }
