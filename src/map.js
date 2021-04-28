@@ -2,7 +2,7 @@
 var map = L.map('map', {
     center: [7.9037, -72.51],
     zoom: 12.5,
-    autoPan: false,
+    minZoom: 12.5,
 });
 
 /*
