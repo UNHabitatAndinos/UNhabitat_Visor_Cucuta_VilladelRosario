@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <title>Caracterización territorial</title>
+    <title>Visor Monitoreo Urbano</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
@@ -20,7 +20,7 @@
         }
 
         html, body, #top {
-            background: #525353;
+            background: #ffffff;
             width: 100%;
             height: 40px;
             left: 15px;
@@ -134,51 +134,51 @@
 <script src="data/edu.js"></script>
 
 <div id="top">
-    <p style="text-align: center; color: rgb(255, 255, 255);">
-        <b>Marcador potencial Integración Urbana Cúcuta y Villa del Rosario<br/></b>
-</div>
-    <div id='legend'>
+    <p style="text-align: center; color: rgb(19, 144, 148);">
+        <b>Visor de Monitoreo Urbano Cúcuta y Villa del Rosario<br/></b>
 </div>
 
-<div class="container">
-    <b>Seleccione indicador:</b>
-    <div class="custom-select">
-    <select name="layers" onclick= 'changeIndi(this);'>
-        <option id="INDICE" value="INDICE">Marcador potencial integración urbana</option>
-        <option id="DENSIDAD" value="DENSIDAD">Densidad residencial</option>
-        <option id="ZA_SALUD1" value="ZA_SALUD1">Proximidad equipamientos de salud</option>
-        <option id="PM10" value="PM10">Concentración de Pm10</option>
-        <option id="ZA_EDUCA1" value="ZA_EDUCA1">Proximidad equipamientos de educación</option>
-        <option id="ZA_BIBLIO1" value="ZA_BIBLIO1">Proximidad equipamientos culturales</option>
-        <option id="MAX_RANGO" value="MAX_RANGO">Edad probable de un habitante</option>
-        <option id="PRO_A_ESCO" value="PRO_A_ESCO">Años promedio educación</option>
-        <option id="MIXTICIDAD" value="MIXTICIDAD">Diversidad usos del suelo</option>
-        <option id="ZA_ESPPUB1" value="ZA_ESPPUB1">Proximidad espacio público</option>   
-        <option id="HURTOS" value="HURTOS">Tasa de hurtos</option>
-        <option id="HOMICIDIOS" value="HOMICIDIOS">Tasa de homicidios</option>
-        <option id="VIV_ADE" value="VIV_ADE">Vivienda adecuada</option>
-        <option id="AGUA_MEJOR" value="AGUA_MEJOR">Acceso a agua mejorada</option>
-        <option id="SANEAMIENT" value="SANEAMIENT">Acceso a saneamiento</option>   
-        <option id="INTERNET" value="INTERNET">Acceso a internet</option>
-        <option id="ESTRATO" value="ESTRATO">Estratificación socioeconómica</option>
-        <option id="T_DESEMPL" value="T_DESEMPL">Tasa de desempleo</option>
-        <option id="DESEM_JUV" value="DESEM_JUV">Desempleo juvenil</option>   
-        <option id="MIX_ETNIAS" value="MIX_ETNIAS">Diversidad etnias y razas</option> 
-        <option id="MIX_EDU" value="MIX_EDU">Diversidad nivel educativo</option>  
-        <option id="MIX_EDAD" value="MIX_EDAD">Diversidad edades</option> 
-        <option id="MIX_EST" value="MIX_EST">Diversidad ingresos</option> 
-        <option id="VENEZOLANO" value="VENEZOLANO">Población de origen Venezuela</option>    
-    </select>
-</div>
-</div>
-
-
-<div id="logoContainer">
-    <img src="images/logo1.png" width="100%">
-</div>
 
 <div id="map">
+    <div id='legend'>
+    </div>
     <script src='src/map.js'></script>
+    
+    
+    <div class="container">
+        <b>Seleccione indicador:</b>
+        <div class="custom-select">
+        <select name="layers" onclick= 'changeIndi(this);'>
+            <option id="DENSIDAD" value="DENSIDAD">Densidad residencial</option>
+            <option id="ZA_SALUD1" value="ZA_SALUD1">Proximidad equipamientos de salud</option>
+            <option id="PM10" value="PM10">Concentración de Pm10</option>
+            <option id="ZA_EDUCA1" value="ZA_EDUCA1">Proximidad equipamientos de educación</option>
+            <option id="ZA_BIBLIO1" value="ZA_BIBLIO1">Proximidad equipamientos culturales</option>
+            <option id="MAX_RANGO" value="MAX_RANGO">Edad probable de un habitante</option>
+            <option id="PRO_A_ESCO" value="PRO_A_ESCO">Años promedio educación</option>
+            <option id="MIXTICIDAD" value="MIXTICIDAD">Diversidad usos del suelo</option>
+            <option id="ZA_ESPPUB1" value="ZA_ESPPUB1">Proximidad espacio público</option>   
+            <option id="HURTOS" value="HURTOS">Tasa de hurtos</option>
+            <option id="HOMICIDIOS" value="HOMICIDIOS">Tasa de homicidios</option>
+            <option id="VIV_ADE" value="VIV_ADE">Vivienda adecuada</option>
+            <option id="AGUA_MEJOR" value="AGUA_MEJOR">Acceso a agua mejorada</option>
+            <option id="SANEAMIENT" value="SANEAMIENT">Acceso a saneamiento</option>   
+            <option id="INTERNET" value="INTERNET">Acceso a internet</option>
+            <option id="ESTRATO" value="ESTRATO">Estratificación socioeconómica</option>
+            <option id="T_DESEMPL" value="T_DESEMPL">Tasa de desempleo</option>
+            <option id="DESEM_JUV" value="DESEM_JUV">Desempleo juvenil</option>   
+            <option id="MIX_ETNIAS" value="MIX_ETNIAS">Diversidad etnias y razas</option> 
+            <option id="MIX_EDU" value="MIX_EDU">Diversidad nivel educativo</option>  
+            <option id="MIX_EDAD" value="MIX_EDAD">Diversidad edades</option> 
+            <option id="MIX_EST" value="MIX_EST">Diversidad ingresos</option> 
+            <option id="VENEZOLANO" value="VENEZOLANO">Población de origen Venezuela</option>    
+        </select>
+    </div>
+    </div>
+
+    <div id="logoContainer">
+        <img src="images/logo1.png" width="100%">
+    </div>
 </div>
 
 
