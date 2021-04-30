@@ -109,8 +109,8 @@ var lim = L.geoJson(limiteven, {
 
 
 function getColor(d) {
-    return d > 10 ? '#c084cc' :
-                      '#178b90';
+    return d > 10 ? '#68e8ff' :
+                      '#ffffff';
 }
 
 function stylec(feature) {
