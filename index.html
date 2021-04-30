@@ -49,7 +49,7 @@
 
         #map {
             position: absolute;
-            top: 40px;
+            top: 0;
             bottom: 0;
             width: 100%;
         }
@@ -104,7 +104,7 @@
 
         .info {
             padding: 16px 10px;
-            font: 12px/13px Segoe UI, Segoe UI, Segoe UI;
+            font: 11px/12px Segoe UI, Segoe UI, Segoe UI;
             background: white;
             background: rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -133,11 +133,6 @@
 <script src="data/salud.js"></script>
 <script src="data/edu.js"></script>
 
-<div id="top">
-    <p style="text-align: center; color: rgb(19, 144, 148);">
-        <b>Visor de Monitoreo Urbano Cúcuta y Villa del Rosario<br/></b>
-</div>
-
 
 <div id="map">
     <div id='legend'>
@@ -149,29 +144,49 @@
         <b>Seleccione indicador:</b>
         <div class="custom-select">
         <select name="layers" onclick= 'changeIndi(this);'>
-            <option id="DENSIDAD" value="DENSIDAD">Densidad residencial</option>
-            <option id="ZA_SALUD1" value="ZA_SALUD1">Proximidad equipamientos de salud</option>
-            <option id="PM10" value="PM10">Concentración de Pm10</option>
-            <option id="ZA_EDUCA1" value="ZA_EDUCA1">Proximidad equipamientos de educación</option>
-            <option id="ZA_BIBLIO1" value="ZA_BIBLIO1">Proximidad equipamientos culturales</option>
-            <option id="MAX_RANGO" value="MAX_RANGO">Edad probable de un habitante</option>
-            <option id="PRO_A_ESCO" value="PRO_A_ESCO">Años promedio educación</option>
-            <option id="MIXTICIDAD" value="MIXTICIDAD">Diversidad usos del suelo</option>
-            <option id="ZA_ESPPUB1" value="ZA_ESPPUB1">Proximidad espacio público</option>   
-            <option id="HURTOS" value="HURTOS">Tasa de hurtos</option>
-            <option id="HOMICIDIOS" value="HOMICIDIOS">Tasa de homicidios</option>
+            <option id="VENEZOLANO" value="VENEZOLANO">Población de origen Venezuela</option> 
+            <optgroup label="Vivienda"></optgroup>
             <option id="VIV_ADE" value="VIV_ADE">Vivienda adecuada</option>
+            <option id="HACINAMI" value="HACINAMI">Espacio vital suficiente</option>
             <option id="AGUA_MEJOR" value="AGUA_MEJOR">Acceso a agua mejorada</option>
             <option id="SANEAMIENT" value="SANEAMIENT">Acceso a saneamiento</option>   
+            <option id="ELECTRICI" value="ELECTRICI">Acceso a electricidad</option> 
             <option id="INTERNET" value="INTERNET">Acceso a internet</option>
             <option id="ESTRATO" value="ESTRATO">Estratificación socioeconómica</option>
-            <option id="T_DESEMPL" value="T_DESEMPL">Tasa de desempleo</option>
-            <option id="DESEM_JUV" value="DESEM_JUV">Desempleo juvenil</option>   
-            <option id="MIX_ETNIAS" value="MIX_ETNIAS">Diversidad etnias y razas</option> 
-            <option id="MIX_EDU" value="MIX_EDU">Diversidad nivel educativo</option>  
-            <option id="MIX_EDAD" value="MIX_EDAD">Diversidad edades</option> 
+            </optgroup>
+            <optgroup label="Salud"></optgroup>
+            <option id="ZA_SALUD1" value="ZA_SALUD1">Proximidad equipamientos de salud</option>
+            <option id="PM10" value="PM10">Concentración de Pm10</option>
+            <option id="CON_SOL" value="CON_SOL">Contaminación de residuos sólidos</option>
+            <option id="E_VIDA" value="E_VIDA">Esperanza de vida al nacer</option>
+            <option id="B_E_VIDA" value="B_E_VIDA">Brecha de género esperanza de vida al nacer</option>
+            </optgroup>
+            <optgroup label="Educación, cultura y diversidad"></optgroup>
+            <option id="ZA_BIBLIO1" value="ZA_BIBLIO1">Proximidad equipamientos culturales</option>
+            <option id="ZA_EDUCA1" value="ZA_EDUCA1">Proximidad equipamientos educativos</option>
             <option id="MIX_EST" value="MIX_EST">Diversidad ingresos</option> 
-            <option id="VENEZOLANO" value="VENEZOLANO">Población de origen Venezuela</option>    
+            <option id="MIX_EDU" value="MIX_EDU">Diversidad nivel educativo</option> 
+            <option id="MIX_EDAD" value="MIX_EDAD">Diversidad edades</option> 
+            <option id="MIX_ETNIAS" value="MIX_ETNIAS">Diversidad etnias y razas</option> 
+            <option id="MAX_RANGO" value="MAX_RANGO">Edad probable de un habitante</option>
+            <option id="PARIDAD" value="PARIDAD">Brecha de género años promedio educación</option>
+            <option id="PRO_A_ESCO" value="PRO_A_ESCO">Años promedio educación</option>
+            </optgroup>
+            <optgroup label="Espacios públicos, seguridad, recreación"></optgroup>
+            <option id="ZA_ESPPUB1" value="ZA_ESPPUB1">Proximidad espacio público</option>  
+            <option id="M2_ESP_PU" value="M2_ESP_PU">M² per capita de espacio público</option> 
+            <option id="DENSIDAD" value="DENSIDAD" selected>Densidad residencial</option>
+            <option id="HURTOS" value="HURTOS">Tasa de hurtos</option>
+            <option id="HOMICIDIOS" value="HOMICIDIOS">Tasa de homicidios</option>
+            <option id="MIXTICIDAD" value="MIXTICIDAD">Diversidad usos del suelo</option>
+            </optgroup>
+            <optgroup label="Oportunidades económicas"></optgroup>
+            <option id="D_COM_SER" value="D_COM_SER">Proximidad unidades de servicios y comerciales</option>
+            <option id="T_DESEMPL" value="T_DESEMPL">Tasa de desempleo</option>
+            <option id="EMPLEO" value="EMPLEO">Empleo</option>
+            <option id="DESEM_JUV" value="DESEM_JUV">Desempleo juvenil</option>   
+            <option id="BRECHA_D" value="BRECHA_D">Brecha de género desempleo</option>
+            </optgroup>          
         </select>
     </div>
     </div>
