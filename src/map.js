@@ -90,7 +90,7 @@ info.update = function (props) {
         'Desempleo: ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
         'Empleo: ' + props.EMPLEO.toFixed(0) + ' %' + '<br />' +
         'Desempleo juvenil: ' + props.DESEM_JUV.toFixed(0) + ' %' + '<br />' +
-        'Brecha género desempleo: ' + props.BRECHA_D.toFixed(0) + ' %' : 'Seleccione una manzana');
+        'Brecha género desempleo: ' + props.BRECHA_D.toFixed(3) : 'Seleccione una manzana');
 };
 info.addTo(map);
 
