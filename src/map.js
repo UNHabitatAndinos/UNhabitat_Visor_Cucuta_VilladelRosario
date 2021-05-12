@@ -62,7 +62,7 @@ info.update = function (props) {
         '<b>Salud</b>' + '<br />' +
         'Proximidad equipamientos de salud: ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
         'Concentración de Pm10: ' + props.PM10.toFixed(2) + ' µg/m3' +  '<br />' +   
-        'Contaminación residuos sólidos: ' + props.R_R_SOL.toFixed(2) + ' %' + '<br />' + 
+        'Contaminación residuos sólidos: ' + props.CON_SOL.toFixed(0) + ' %' + '<br />' + 
         'Esperanza de vida al nacer: ' + props.E_VIDA.toFixed(0) + ' años' + '<br />' +
         'Brecha género esperanza de vida al nacer: ' + props.B_E_VIDA.toFixed(2) + '<br />' +  '<br />' +  
         
