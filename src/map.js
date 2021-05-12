@@ -73,7 +73,6 @@ info.update = function (props) {
         'Diversidad nivel educativo: ' + props.MIX_EDU.toFixed(2) + '/2.20' + '<br />' +
         'Diversidad edades: ' + props.MIX_EDAD.toFixed(2) + '/1.79' + '<br />' +
         'Diversidad etnias y razas: ' + props.MIX_ETNIAS.toFixed(2) + '/1.61' +'<br />' + 
-        'Edad probable de un habitante: ' + props.DES_RANGO + ' años' + '<br />' +
         'Brecha género años promedio educación: ' + props.PARIDAD.toFixed(0) + ' años' + '<br />' +
         'Años promedio educación:' + props.PRO_A_ESCO.toFixed(0) + ' años'+ '<br />' +  '<br />' +  
         
