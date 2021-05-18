@@ -1,20 +1,16 @@
 // Create variable to hold map element, give initial settings to map
 var map = L.map('map', {
     center: [7.892, -72.506],
-    zoom: 12.5,
-    minZoom: 13,
+    zoom: 12.4,
+    minZoom: 12.4,
     scrollWheelZoom: false,
 });
 
 map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
-/*
-var bounds = new L.LatLngBounds([[7.95,-72.64],[7.95,-72.39],[7.78,-72.39],[7.78,-72.64]]);
-map.fitBounds(bounds);*/
-
 L.easyButton('<img src="images/fullscreen.png">', function (btn, map) {
     var cucu = [7.892, -72.506];
-    map.setView(cucu, 12.5);
+    map.setView(cucu, 12.4);
 }).addTo(map);
 
 
