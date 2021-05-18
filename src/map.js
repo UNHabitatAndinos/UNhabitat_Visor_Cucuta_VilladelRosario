@@ -1,22 +1,16 @@
-// Create variable to hold map element, give initial settings to map
 var map = L.map('map', {
     center: [7.892, -72.506],
-    zoom: 12.5,
-    minZoom: 13,
+    zoom: 12.4,
+    minZoom: 12.4,
     scrollWheelZoom: false,
 });
 
 map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
-/*
-var bounds = new L.LatLngBounds([[7.95,-72.64],[7.95,-72.39],[7.78,-72.39],[7.78,-72.64]]);
-map.fitBounds(bounds);*/
-
 L.easyButton('<img src="images/fullscreen.png">', function (btn, map) {
     var cucu = [7.892, -72.506];
-    map.setView(cucu, 12.5);
+    map.setView(cucu, 12.4);
 }).addTo(map);
-
 
 var esriAerialUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services' +
     '/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -60,15 +54,16 @@ info.update = function (props) {
         'Estrato: </b> ' + props.ESTRATO.toFixed(0)  + '<br />' +  '<br />' +  
 
         '<b>Salud</b>' + '<br />' +
-        'Proximidad equipamientos de salud: ' + props.DIS_SALUD.toFixed(0) + ' m' + '<br />' +
+        'Proximidad centros de salud: ' + props.P_SALUD.toFixed(0) + ' m' + '<br />' +
+        'Proximidad hospitales: ' + props.P_SALUD1.toFixed(0) + ' m' + '<br />' +
         'Concentración de Pm10: ' + props.PM10.toFixed(2) + ' µg/m3' +  '<br />' +   
         'Contaminación residuos sólidos: ' + props.R_R_SOL.toFixed(2) + ' %' + '<br />' + 
         'Esperanza de vida al nacer: ' + props.E_VIDA.toFixed(0) + ' años' + '<br />' +
         'Brecha género esperanza de vida al nacer: ' + props.B_E_VIDA.toFixed(2) + ' años' + '<br />' +  '<br />' +  
         
         '<b>Educación, cultura y diversidad </b>' + '<br />' +
-        'Proximidad equipamientos culturales: ' + props.DIS_BIBLIO.toFixed(0) + ' m' + '<br />' +
-        'Proximidad equipamientos educativos: ' + props.DIS_EDUCA.toFixed(0) + ' m' + '<br />' +
+        'Proximidad equipamientos culturales: ' + props.P_BIB.toFixed(0) + ' m' + '<br />' +
+        'Proximidad equipamientos educativos: ' + props.P_EDU.toFixed(0) + ' m' + '<br />' +
         'Diversidad ingresos: ' + props.MIX_EST.toFixed(2) + '/1.79' + '<br />' +
         'Diversidad nivel educativo: ' + props.MIX_EDU.toFixed(2) + '/2.20' + '<br />' +
         'Diversidad edades: ' + props.MIX_EDAD.toFixed(2) + '/1.79' + '<br />' +
@@ -78,7 +73,7 @@ info.update = function (props) {
         'Años promedio educación:' + props.PRO_A_ESCO.toFixed(0) + ' años'+ '<br />' +  '<br />' +  
         
         '<b>Espacios públicos, seguridad y recreación </b>' + '<br />' +
-        'Proximidad espacio público: ' + props.DIS_EP.toFixed(0) + ' m' + '<br />' +
+        'Proximidad espacio público: ' + props.P_EP.toFixed(0) + ' m' + '<br />' +
         'M² per capita de espacio público: ' + props.M2_ESP_PU.toFixed(0) + ' m' + '<br />' +
         'Densidad poblacional: ' + props.DENSIDAD.toFixed(2) + '<br />' +
         'Tasa de hurtos x 100 mil habitantes: ' + props.HURTOS.toFixed(0) + '<br />' +
@@ -86,7 +81,7 @@ info.update = function (props) {
         'Diversidad usos del suelo: ' + props.MIXTICIDAD.toFixed(2) + '/1.61' +'<br />' + '<br />' +
 
         '<b>Oportunidades económicas </b>' + '<br />' +
-        'Proximidad unidades servicios y comerciales: ' + props.D_COM_SER.toFixed(0) + ' m' + '<br />' +
+        'Proximidad unidades servicios y comerciales: ' + props.P_COMSER.toFixed(0) + ' m' + '<br />' +
         'Desempleo: ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
         'Empleo: ' + props.EMPLEO.toFixed(0) + ' %' + '<br />' +
         'Desempleo juvenil: ' + props.DESEM_JUV.toFixed(0) + ' %' + '<br />' +
@@ -608,6 +603,78 @@ var legends = {
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
+    P_SALUD: {
+        title: "Proximidad centros de salud",
+        subtitle: "Distancia en m x Factor inclinación del terreno",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>501 - 1000</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>3001 - 5000</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 11225</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Alcaldía San José de Cúcuta",
+    }, 
+    P_SALUD1: {
+        title: "Proximidad hospitales",
+        subtitle: "Distancia en m x Factor inclinación del terreno",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>501 - 1000</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>3001 - 5000</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 12982</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Alcaldía San José de Cúcuta",
+    }, 
+    P_EDU: {
+        title: "Proximidad equipamientos educativos",
+        subtitle: "Distancia en m x Factor inclinación del terreno",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 150</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>151 - 300</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>301 - 500</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>501 - 1500</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>1501 - 3012</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Alcaldía San José de Cúcuta",
+    }, 
+    P_BIB: {
+        title: "Proximidad equipamientos culturales",
+        subtitle: "Distancia en m x Factor inclinación del terreno",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>501 - 1000</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>3001 - 5000</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 12269</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Alcaldía San José de Cúcuta",
+    }, 
+    P_EP: {
+        title: "Proximidad espacio público",
+        subtitle: "Distancia en m x Factor inclinación del terreno",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 150</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>151 - 500</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>501 - 1000</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>1001 - 2000</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>2001 - 6747</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Alcaldía San José de Cúcuta",
+    }, 
+    P_COMSER: {
+        title: "Proximidad unidades de servicios y comerciales",
+        subtitle: "Distancia en m x Factor inclinación del terreno",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 300</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>301 - 500</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>501 - 1000</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>1001 - 2000</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>2001 - 3949</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "Alcaldía San José de Cúcuta",
+    }, 
 }
 
 var indi = L.geoJson(Manzana, {
@@ -833,6 +900,48 @@ function setProColor(d) {
                 d > 0.35 ? '#f4f466' :
                     d > 0.10 ? '#fdae61' :
                         '#d7191c';
+    }
+    else if (currentStyle === 'P_SALUD') {
+        return d > 5000 ? '#d7191c' :
+                d > 3000 ? '#fdae61' :
+                    d > 1000 ? '#f4f466' :
+                        d > 500 ? '#a6d96a' :
+                       '#1a9641';
+    }
+    else if (currentStyle === 'P_SALUD1') {
+        return d > 5000 ? '#d7191c' :
+                d > 3000 ? '#fdae61' :
+                    d > 1000 ? '#f4f466' :
+                        d > 500 ? '#a6d96a' :
+                       '#1a9641';
+    }
+    else if (currentStyle === 'P_EDU') {
+        return d > 1500 ? '#d7191c' :
+                d > 500 ? '#fdae61' :
+                    d > 300 ? '#f4f466' :
+                        d > 150 ? '#a6d96a' :
+                       '#1a9641';
+    }
+    else if (currentStyle === 'P_BIB') {
+        return d > 5000 ? '#d7191c' :
+                d > 3000 ? '#fdae61' :
+                    d > 1000 ? '#f4f466' :
+                        d > 500 ? '#a6d96a' :
+                       '#1a9641';
+    }
+    else if (currentStyle === 'P_EP') {
+        return d > 2000 ? '#d7191c' :
+                d > 1000 ? '#fdae61' :
+                    d > 500 ? '#f4f466' :
+                        d > 150 ? '#a6d96a' :
+                       '#1a9641';
+    }
+    else if (currentStyle === 'P_COMSER') {
+        return d > 2000 ? '#d7191c' :
+                d > 1000 ? '#fdae61' :
+                    d > 500 ? '#f4f466' :
+                        d > 300 ? '#a6d96a' :
+                       '#1a9641';
     }
     else {
         return d > 4 ? '#d7191c' :
