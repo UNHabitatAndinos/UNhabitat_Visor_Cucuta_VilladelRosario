@@ -38,7 +38,7 @@ info.onAdd = function (map) {
 info.update = function (props) {
     this._div.innerHTML = (props ?
         'Municipio ' + props.MUN + '<br />' +
-        'Comuna ' + props.COM + '<br />' +
+         props.COM + '<br />' +
         'Viviendas ' + props.VIVI_OCU + '<br />' +
         'Hogares ' + props.HOGARES + '<br />' +
         'Personas ' + props.PERSONAS + '<br />' +  
