@@ -57,9 +57,9 @@ info.update = function (props) {
         'Proximidad centros de salud: ' + props.P_SALUD.toFixed(0) + ' m' + '<br />' +
         'Proximidad hospitales: ' + props.P_SALUD1.toFixed(0) + ' m' + '<br />' +
         'Concentración de Pm10: ' + props.PM10.toFixed(2) + ' µg/m3' +  '<br />' +   
-        'Contaminación residuos sólidos: ' + props.R_R_SOL.toFixed(2) + ' %' + '<br />' + 
+        'Contaminación residuos sólidos: ' + props.CON_SOL.toFixed(0) + ' %' + '<br />' + 
         'Esperanza de vida al nacer: ' + props.E_VIDA.toFixed(0) + ' años' + '<br />' +
-        'Brecha género esperanza de vida al nacer: ' + props.B_E_VIDA.toFixed(2) + ' años' + '<br />' +  '<br />' +  
+        'Brecha género esperanza de vida al nacer: ' + props.B_E_VIDA.toFixed(2) + '<br />' +  '<br />' +  
         
         '<b>Educación, cultura y diversidad </b>' + '<br />' +
         'Proximidad equipamientos culturales: ' + props.P_BIB.toFixed(0) + ' m' + '<br />' +
@@ -68,8 +68,7 @@ info.update = function (props) {
         'Diversidad nivel educativo: ' + props.MIX_EDU.toFixed(2) + '/2.20' + '<br />' +
         'Diversidad edades: ' + props.MIX_EDAD.toFixed(2) + '/1.79' + '<br />' +
         'Diversidad etnias y razas: ' + props.MIX_ETNIAS.toFixed(2) + '/1.61' +'<br />' + 
-        'Edad probable de un habitante: ' + props.DES_RANGO + ' años' + '<br />' +
-        'Brecha género años promedio educación: ' + props.PARIDAD.toFixed(0) + ' años' + '<br />' +
+        'Brecha género años promedio educación: ' + props.PARIDAD.toFixed(2) + '<br />' +
         'Años promedio educación:' + props.PRO_A_ESCO.toFixed(0) + ' años'+ '<br />' +  '<br />' +  
         
         '<b>Espacios públicos, seguridad y recreación </b>' + '<br />' +
