@@ -69,7 +69,7 @@ info.update = function (props) {
         'Diversidad edades: ' + props.MIX_EDAD.toFixed(2) + '/1.79' + '<br />' +
         'Diversidad etnias y razas: ' + props.MIX_ETNIAS.toFixed(2) + '/1.61' +'<br />' + 
         'Brecha género años promedio educación: ' + props.PARIDAD.toFixed(2) + '<br />' +
-        'Años promedio educación:' + props.PRO_A_ESCO.toFixed(0) + ' años'+ '<br />' +  '<br />' +  
+        'Años promedio educación: ' + props.PRO_A_ESCO.toFixed(0) + ' años'+ '<br />' +  '<br />' +  
         
         '<b>Espacios públicos, seguridad y recreación </b>' + '<br />' +
         'Proximidad espacio público: ' + props.P_EP.toFixed(0) + ' m' + '<br />' +
@@ -176,7 +176,7 @@ function changeLegend(props) {
     var _legend = document.getElementById('legend'); // create a div with a class "info"
     _legend.innerHTML = (props ?
         `<p style="font-size: 11px"><strong>${props.title}</strong></p>
-            <p style="font-size: 10px">${props.subtitle}</p>
+            <p>${props.subtitle}</p>
             <p id='colors'>
                 ${props.elem1}
                 ${props.elem2}
@@ -244,7 +244,7 @@ var legends = {
     },
     MIXTICIDAD: {
         title: "Diversidad usos del suelo",
-        subtitle: "Índice de Shanon",
+        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana",
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.06 - 1.67</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.79 - 1.05</div>',
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.54 - 0.78</div>',
@@ -304,7 +304,7 @@ var legends = {
     },  
     DESEM_JUV: {
         title: "Desempleo juvenil",
-        subtitle: "% de Personas",
+        subtitle: "% de Personas entre 15 y 24 años",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 4</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>5 - 13</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>14 - 24</div>',
@@ -412,7 +412,7 @@ var legends = {
     },
     MIX_ETNIAS: {
         title: "Diversidad etnias y razas",
-        subtitle: "Índice de Shanon", 
+        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0.25 - 0.50</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.15 - 0.24</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.09 - 0.14</div>',
@@ -424,7 +424,7 @@ var legends = {
     },
     MIX_EDU: {
         title: "Diversidad nivel educativo",
-        subtitle: "Índice de Shanon", 
+        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.56 - 1.98</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>1.34 - 1.55</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1.08 - 1.33</div>',
@@ -436,7 +436,7 @@ var legends = {
     },
     MIX_EDAD: {
         title: "Diversidad edades",
-        subtitle: "Índice de Shanon", 
+        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.51 - 1.77</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>1.39 - 1.50</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1.18 - 1.38</div>',
@@ -448,7 +448,7 @@ var legends = {
     },
     MIX_EST: {
         title: "Diversidad ingresos",
-        subtitle: "Índice de Shanon", 
+        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0.78 - 1.52</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.55 - 0.77</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.34 - 0.54</div>',
@@ -532,7 +532,7 @@ var legends = {
     },
     B_E_VIDA: {
         title: "Brecha de género esperanza de vida al nacer",
-        subtitle: "años",
+        subtitle: "Relación esperanza de vida al nacer de mujeres y hombres",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0.35 - 1.00</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>1.01- 1.04</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1.05 - 1.09</div>',
@@ -544,7 +544,7 @@ var legends = {
     },
     PARIDAD: {
         title: "Brecha de género años promedio de eduación",
-        subtitle: "años",
+        subtitle: "Relación años promedio educación de mujeres y hombres",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0.00 - 0.68</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.69 - 0.79</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.80 - 0.90</div>',
@@ -556,7 +556,7 @@ var legends = {
     },
     M2_ESP_PU: {
         title: "M² per capita de espacio público",
-        subtitle: "M² per capita",
+        subtitle: "m²/habitante",
         elem1: '<div><span  style= "color:#1a9641">▉</span>Mayor 2.29</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.85 - 2.28</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.27 - 0.84</div>',
@@ -610,7 +610,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>3001 - 5000</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 11225</div>',
-        elem6: '',
+        elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
         elem8: "Alcaldía San José de Cúcuta",
     }, 
@@ -622,7 +622,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>3001 - 5000</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 12982</div>',
-        elem6: '',
+        elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
         elem8: "Alcaldía San José de Cúcuta",
     }, 
@@ -634,7 +634,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>301 - 500</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>501 - 1500</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>1501 - 3012</div>',
-        elem6: '',
+        elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
         elem8: "Alcaldía San José de Cúcuta",
     }, 
@@ -646,7 +646,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>3001 - 5000</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 12269</div>',
-        elem6: '',
+        elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
         elem8: "Alcaldía San José de Cúcuta",
     }, 
@@ -658,7 +658,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>501 - 1000</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>1001 - 2000</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>2001 - 6747</div>',
-        elem6: '',
+        elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
         elem8: "Alcaldía San José de Cúcuta",
     }, 
@@ -670,7 +670,7 @@ var legends = {
         elem3: '<div><span  style= "color:#f4f466">▉</span>501 - 1000</div>',
         elem4: '<div><span  style= "color:#fdae61">▉</span>1001 - 2000</div>',
         elem5: '<div><span  style= "color:#d7191c">▉</span>2001 - 3949</div>',
-        elem6: '',
+        elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
         elem8: "Alcaldía San José de Cúcuta",
     }, 
