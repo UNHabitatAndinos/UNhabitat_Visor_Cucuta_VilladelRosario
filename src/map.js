@@ -388,7 +388,7 @@ var legends = {
     },
     VENEZOLANO: {
         title: "Población de origen Venezuela",
-        subtitle: "% Personas",
+        subtitle: "Personas",
         elem1: '<div><span  style= "color:#1a9641">▉</span>1 - 5</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>6 - 25</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>26 - 77</div>',
@@ -592,7 +592,7 @@ var legends = {
     }, 
     BRECHA_D: {
         title: "Brecha de género desempleo",
-        subtitle: "",
+        subtitle: "Relación de desempleo mujeres y hombres",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 0.10</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.11 - 0.35</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.36 - 0.70</div>',
