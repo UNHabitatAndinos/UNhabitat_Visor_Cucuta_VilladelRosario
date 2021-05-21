@@ -37,12 +37,11 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
     this._div.innerHTML = (props ?
-        'Municipio ' + props.MUN + '<br />' +
-         props.COM + '<br />' +
+        '<b>Municipio ' + props.MUN + ' ' + props.COM + '</b> <br />' +
         'Viviendas ' + props.VIVI_OCU + '<br />' +
         'Hogares ' + props.HOGARES + '<br />' +
         'Personas ' + props.PERSONAS + '<br />' +  
-        'Población de origen Venezuela ' + props.VENEZOLANO + '<br />' +  '<br />' + 
+        'Población de origen Venezuela ' + props.VENEZOLANO  + '<br />' +  '<br />' +  
 
         '<b>Vivienda </b>' + '<br />' +
         'Vivienda adecuada: ' + props.VIV_ADE.toFixed(0) + ' %' + '<br />' +
