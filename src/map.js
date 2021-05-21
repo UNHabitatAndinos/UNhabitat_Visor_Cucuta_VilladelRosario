@@ -252,7 +252,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.29</div>',
         elem6: '',
         elem7: '',
-        elem8: "Plan de Ordenamiento Territorial Cúcuta",
+        elem8: "Plan de Ordenamiento Territorial Cúcuta, Alcaldía de Villa del Rosario",
     },
     ZA_ESPPUB1: {
         title: "Proximidad espacio público",
@@ -264,7 +264,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>Escarpada</div>',
         elem6: '<div><span  style= "color:#c3bfc2">▉</span>Por fuera de la zona de accesibilidad (> 500 m)</div>',
         elem7: '',
-        elem8: "Plan de Ordenamiento Territorial Cúcuta",
+        elem8: "Plan de Ordenamiento Territorial Cúcuta, Alcaldía de Villa del Rosario",
     },
     VIV_ADE: {
         title: "Vivienda Adecuada",
@@ -364,7 +364,7 @@ var legends = {
     },
     HURTOS: {
         title: "Tasa de hurtos",
-        subtitle: "Hurtos x 100 mil habitantes",
+        subtitle: "Hurtos x 10mil habitantes",
         elem1: '<div><span  style= "color:#1a9641">▉</span>Menor 107</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>108 - 179</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>180 - 270</div>',
@@ -376,7 +376,7 @@ var legends = {
     },
     HOMICIDIOS: {
         title: "Tasa de homicidios",
-        subtitle: "Homicidios x 100 mil habitantes",
+        subtitle: "Homicidios x 10mil habitantes",
         elem1: '<div><span  style= "color:#1a9641">▉</span>6 - 10</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>11 - 15</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>16 - 18</div>',
@@ -564,7 +564,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.20</div>',
         elem6: '',
         elem7: '',
-        elem8: "Plan de Ordenamiento Territorial Cúcuta",
+        elem8: "Plan de Ordenamiento Territorial Cúcuta, Alcaldía de Villa del Rosario",
     }, 
     D_COM_SER: {
         title: "Proximidad unidades de servicios y comerciales",
@@ -602,7 +602,7 @@ var legends = {
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
-    P_SALUD: {
+    P_SALUD1: {
         title: "Proximidad centros de salud",
         subtitle: "Distancia en m x Factor inclinación del terreno",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
@@ -612,9 +612,9 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 11225</div>',
         elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
-        elem8: "Alcaldía San José de Cúcuta",
+        elem8: "Alcaldía San José de Cúcuta, Alcaldía de Villa del Rosario",
     }, 
-    P_SALUD1: {
+    P_SALUD: {
         title: "Proximidad hospitales",
         subtitle: "Distancia en m x Factor inclinación del terreno",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
@@ -624,7 +624,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 12982</div>',
         elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
-        elem8: "Alcaldía San José de Cúcuta",
+        elem8: "Alcaldía San José de Cúcuta, Alcaldía de Villa del Rosario",
     }, 
     P_EDU: {
         title: "Proximidad equipamientos educativos",
@@ -636,7 +636,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>1501 - 3012</div>',
         elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
-        elem8: "Alcaldía San José de Cúcuta",
+        elem8: "Alcaldía San José de Cúcuta, Alcaldía de Villa del Rosario",
     }, 
     P_BIB: {
         title: "Proximidad equipamientos culturales",
@@ -648,7 +648,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>5001 - 12269</div>',
         elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
-        elem8: "Alcaldía San José de Cúcuta",
+        elem8: "Alcaldía San José de Cúcuta, Alcaldía de Villa del Rosario",
     }, 
     P_EP: {
         title: "Proximidad espacio público",
@@ -660,7 +660,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>2001 - 6747</div>',
         elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
-        elem8: "Alcaldía San José de Cúcuta",
+        elem8: "Alcaldía San José de Cúcuta, Alcaldía de Villa del Rosario",
     }, 
     P_COMSER: {
         title: "Proximidad unidades de servicios y comerciales",
@@ -672,7 +672,7 @@ var legends = {
         elem5: '<div><span  style= "color:#d7191c">▉</span>2001 - 3949</div>',
         elem6: '<br />Factor de inclinación del terreno <br />A nivel: 1<br /> Ligeramente inclinada: 1.25<br /> Moderadamente inclinada: 1.5<br /> Fuertemente inclinada: 1.75<br /> Escarpada: 2<br />',
         elem7: '',
-        elem8: "Alcaldía San José de Cúcuta",
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
 }
 
@@ -900,14 +900,14 @@ function setProColor(d) {
                     d > 0.10 ? '#fdae61' :
                         '#d7191c';
     }
-    else if (currentStyle === 'P_SALUD') {
+    else if (currentStyle === 'P_SALUD1') {
         return d > 5000 ? '#d7191c' :
                 d > 3000 ? '#fdae61' :
                     d > 1000 ? '#f4f466' :
                         d > 500 ? '#a6d96a' :
                        '#1a9641';
     }
-    else if (currentStyle === 'P_SALUD1') {
+    else if (currentStyle === 'P_SALUD') {
         return d > 5000 ? '#d7191c' :
                 d > 3000 ? '#fdae61' :
                     d > 1000 ? '#f4f466' :
