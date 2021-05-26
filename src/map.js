@@ -82,6 +82,7 @@ info.update = function (props) {
         'Proximidad unidades servicios y comerciales: ' + props.P_COMSER.toFixed(0) + ' m' + '<br />' +
         'Desempleo: ' + props.T_DESEMPL.toFixed(0) + ' %' + '<br />' +
         'Empleo: ' + props.EMPLEO.toFixed(0) + ' %' + '<br />' +
+        'Empleo informal estricto: ' + props.E_INFOR.toFixed(0) + ' %' + '<br />' +
         'Desempleo juvenil: ' + props.DESEM_JUV.toFixed(0) + ' %' + '<br />' +
         'Brecha género desempleo: ' + props.BRECHA_D.toFixed(2) : 'Seleccione una manzana');
 };
@@ -673,6 +674,18 @@ var legends = {
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     }, 
+    E_INFOR: {
+        title: "Empleo informal estricto",
+        subtitle: "% Personas",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 5</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>6 - 12</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>13 - 25</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>26 - 53</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>54 - 100</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    },
 }
 
 var indi = L.geoJson(Manzana, {
@@ -940,6 +953,13 @@ function setProColor(d) {
                     d > 500 ? '#f4f466' :
                         d > 300 ? '#a6d96a' :
                        '#1a9641';
+    }
+    else if (currentStyle === 'E_INFOR') {
+        return d > 53 ? '#d7191c' :
+        d > 25 ? '#fdae61' :
+            d > 12 ? '#f4f466' :
+                d > 5 ? '#a6d96a':
+                '#1a9641';
     }
     else {
         return d > 4 ? '#d7191c' :
