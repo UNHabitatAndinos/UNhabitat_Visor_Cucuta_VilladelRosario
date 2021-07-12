@@ -412,7 +412,7 @@ var legends = {
     },
     MIX_ETNIAS: {
         title: "Diversidad etnias y razas",
-        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
+        subtitle: "Índice de Shannon-Wienner -  Nivel de diversidad por manzana",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0.25 - 0.50</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.15 - 0.24</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.09 - 0.14</div>',
@@ -424,7 +424,7 @@ var legends = {
     },
     MIX_EDU: {
         title: "Diversidad nivel educativo",
-        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
+        subtitle: "Índice de Shannon-Wienner -  Nivel de diversidad por manzana",
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.56 - 1.98</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>1.34 - 1.55</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1.08 - 1.33</div>',
@@ -436,7 +436,7 @@ var legends = {
     },
     MIX_EDAD: {
         title: "Diversidad edades",
-        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
+        subtitle: "Índice de Shannon-Wienner -  Nivel de diversidad por manzana",
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.51 - 1.77</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>1.39 - 1.50</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1.18 - 1.38</div>',
@@ -448,7 +448,7 @@ var legends = {
     },
     MIX_EST: {
         title: "Diversidad ingresos",
-        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana", 
+        subtitle: "Índice de Shannon-Wienner -  Nivel de diversidad por manzana",
         elem1: '<div><span  style= "color:#1a9641">▉</span>0.78 - 1.52</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.55 - 0.77</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.34 - 0.54</div>',
