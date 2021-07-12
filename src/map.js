@@ -604,7 +604,7 @@ var legends = {
     }, 
     P_SALUD1: {
         title: "Proximidad centros de salud",
-        subtitle: "Distancia en m x Factor inclinación del terreno",
+        subtitle: "Distancia en metros con factor de inclinación del terreno", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>501 - 1000</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
@@ -616,7 +616,7 @@ var legends = {
     }, 
     P_SALUD: {
         title: "Proximidad hospitales",
-        subtitle: "Distancia en m x Factor inclinación del terreno",
+        subtitle: "Distancia en metros con factor de inclinación del terreno", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>501 - 1000</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
@@ -628,7 +628,7 @@ var legends = {
     }, 
     P_EDU: {
         title: "Proximidad equipamientos educativos",
-        subtitle: "Distancia en m x Factor inclinación del terreno",
+        subtitle: "Distancia en metros con factor de inclinación del terreno", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 150</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>151 - 300</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>301 - 500</div>',
@@ -640,7 +640,7 @@ var legends = {
     }, 
     P_BIB: {
         title: "Proximidad equipamientos culturales",
-        subtitle: "Distancia en m x Factor inclinación del terreno",
+        subtitle: "Distancia en metros con factor de inclinación del terreno", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 500</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>501 - 1000</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>1001 - 3000</div>',
@@ -652,7 +652,7 @@ var legends = {
     }, 
     P_EP: {
         title: "Proximidad espacio público",
-        subtitle: "Distancia en m x Factor inclinación del terreno",
+        subtitle: "Distancia en metros con factor de inclinación del terreno", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 150</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>151 - 500</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>501 - 1000</div>',
@@ -663,8 +663,8 @@ var legends = {
         elem8: "Alcaldía San José de Cúcuta, Alcaldía de Villa del Rosario",
     }, 
     P_COMSER: {
-        title: "Proximidad unidades de servicios y comerciales",
-        subtitle: "Distancia en m x Factor inclinación del terreno",
+        title: "Proximidad zonas de interés económico (servicios y comercio)",
+        subtitle: "Distancia en metros con factor de inclinación del terreno", 
         elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 300</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>301 - 500</div>', 
         elem3: '<div><span  style= "color:#f4f466">▉</span>501 - 1000</div>',
