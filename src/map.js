@@ -244,7 +244,7 @@ var legends = {
     },
     MIXTICIDAD: {
         title: "Diversidad usos del suelo",
-        subtitle: "Índice de Shanon -  Nivel de diversidad por manzana",
+        subtitle: "Índice de Shannon-Wienner -  Nivel de diversidad por manzana",
         elem1: '<div><span  style= "color:#1a9641">▉</span>1.06 - 1.67</div>',
         elem2: '<div><span  style= "color:#a6d96a">▉</span>0.79 - 1.05</div>',
         elem3: '<div><span  style= "color:#f4f466">▉</span>0.54 - 0.78</div>',
