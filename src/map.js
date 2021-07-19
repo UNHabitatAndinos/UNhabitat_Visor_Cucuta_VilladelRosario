@@ -50,6 +50,7 @@ info.update = function (props) {
         'Saneamiento: </b> ' + props.SANEAMIENT.toFixed(0) + ' %' + '<br />' +
         'Electricidad: </b> ' + props.ELECTRICI.toFixed(0) + ' %' + '<br />' +
         'Internet: </b> ' + props.INTERNET.toFixed(0) + ' %' + '<br />' + 
+        'Dependencia económica: ' + props.DEP_ECONO.toFixed(2) + '<br />' + 
         'Estrato: </b> ' + props.ESTRATO.toFixed(0)  + '<br />' +  '<br />' +  
 
         '<b>Salud</b>' + '<br />' +
@@ -305,11 +306,11 @@ var legends = {
     DESEM_JUV: {
         title: "Desempleo juvenil",
         subtitle: "% de Personas entre 15 y 24 años",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 4</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>5 - 13</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>14 - 24</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>25 - 46</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>47 - 100</div>',
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 10</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>11 - 26</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>27 - 41</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>42 - 58</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>59 - 90</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -329,11 +330,11 @@ var legends = {
     T_DESEMPL: {
         title: "Tasa de desempleo",
         subtitle: "% de Personas",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 3</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>4 - 6</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>7 - 9</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>10 - 13</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>14 - 83</div>',
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 6</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>7 - 14</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>15 - 24</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>25 - 41</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>42 - 92</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -581,11 +582,11 @@ var legends = {
     EMPLEO: {
         title: "Empleo",
         subtitle: "% Personas",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>55 - 100</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>50 - 54</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>45 - 49</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>40 - 44</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>0 - 39</div>',
+        elem1: '<div><span  style= "color:#1a9641">▉</span>63 - 100</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>53 - 62</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>46 - 52</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>36 - 45</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>0 - 35</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -593,11 +594,11 @@ var legends = {
     BRECHA_D: {
         title: "Brecha de género desempleo",
         subtitle: "Relación de desempleo mujeres y hombres",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 0.10</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.11 - 0.35</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>0.36 - 0.70</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>0.71 - 1.30</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>Mayor 1.31</div>',
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 0.54</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.55 - 1.54</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>1.55 - 2.94</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>2.95 - 5.45</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>5.46 - 12.60</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -677,15 +678,27 @@ var legends = {
     E_INFOR: {
         title: "Empleo informal estricto",
         subtitle: "% Personas",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 5</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>6 - 12</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>13 - 25</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>26 - 53</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>54 - 100</div>',
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0.00 - 0.85</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.86 - 2.98</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>2.99 - 5.10</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>5.11 - 9.63</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>9.64 - 100.00</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
     },
+    DEP_ECONO: {
+        title: "Dependencia económica",
+        subtitle: "Población/Población ocupada",
+        elem1: '<div><span  style= "color:#1a9641">▉</span>0.00 - 1.56</div>',
+        elem2: '<div><span  style= "color:#a6d96a">▉</span>1.57 - 2.31</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>2.32 - 3.09</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>3.10 - 3.60</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>3.61 - 48.00</div>',
+        elem6: '',
+        elem7: '',
+        elem8: "DANE Censo Nacional Población y Vivienda 2018",
+    }, 
 }
 
 var indi = L.geoJson(Manzana, {
@@ -736,10 +749,10 @@ function setProColor(d) {
                         '#d7191c';
     }
     else if (currentStyle === 'DESEM_JUV') {
-                        return d > 46 ? '#d7191c' :
-                        d > 24 ? '#fdae61' :
-                            d > 13 ? '#f4f466' :
-                                d > 4 ? '#a6d96a':
+                        return d > 58 ? '#d7191c' :
+                        d > 41 ? '#fdae61' :
+                            d > 26 ? '#f4f466' :
+                                d > 10 ? '#a6d96a':
                                 '#1a9641';
     }
     else if (currentStyle === 'INTERNET') {
@@ -750,10 +763,10 @@ function setProColor(d) {
                         '#d7191c';
     }
     else if (currentStyle === 'T_DESEMPL') {
-        return d > 13 ? '#d7191c' :
-                        d > 9 ? '#fdae61' :
-                            d > 6 ? '#f4f466' :
-                                d > 3 ? '#a6d96a':
+        return d > 41 ? '#d7191c' :
+                        d > 24 ? '#fdae61' :
+                            d > 14 ? '#f4f466' :
+                                d > 6 ? '#a6d96a':
                                 '#1a9641';
     }
     else if (currentStyle === 'PM10') {
@@ -899,17 +912,17 @@ function setProColor(d) {
                        '#1a9641';
     }
     else if (currentStyle === 'EMPLEO') {
-        return d > 54 ? '#1a9641' :
-            d > 49 ? '#a6d96a' :
-                d > 44 ? '#f4f466' :
-                    d > 39 ? '#fdae61' :
+        return d > 62 ? '#1a9641' :
+            d > 52 ? '#a6d96a' :
+                d > 45 ? '#f4f466' :
+                    d > 35 ? '#fdae61' :
                         '#d7191c';
     }
     else if (currentStyle === 'BRECHA_D') {
-        return d > 1.30 ? '#1a9641' :
-            d > 0.70 ? '#a6d96a' :
-                d > 0.35 ? '#f4f466' :
-                    d > 0.10 ? '#fdae61' :
+        return d > 5.45 ? '#1a9641' :
+            d > 2.94 ? '#a6d96a' :
+                d > 1.54 ? '#f4f466' :
+                    d > 0.54 ? '#fdae61' :
                         '#d7191c';
     }
     else if (currentStyle === 'P_SALUD1') {
@@ -955,11 +968,18 @@ function setProColor(d) {
                        '#1a9641';
     }
     else if (currentStyle === 'E_INFOR') {
-        return d > 53 ? '#d7191c' :
-        d > 25 ? '#fdae61' :
-            d > 12 ? '#f4f466' :
-                d > 5 ? '#a6d96a':
+        return d > 9.63 ? '#d7191c' :
+        d > 5.10 ? '#fdae61' :
+            d > 2.98 ? '#f4f466' :
+                d > 0.85 ? '#a6d96a':
                 '#1a9641';
+    }
+    else if (currentStyle === 'DEP_ECONO') {
+        return d > 3.60 ? '#d7191c' :
+                        d > 3.09 ? '#fdae61' :
+                            d > 2.31 ? '#f4f466' :
+                                d > 1.56 ? '#a6d96a':
+                                '#1a9641';
     }
     else {
         return d > 4 ? '#d7191c' :
