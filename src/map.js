@@ -461,12 +461,12 @@ var legends = {
     },
     DENSIDAD: {
         title: "Densidad residencial",
-        subtitle: "Población x m2", 
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0.000 - 0.007</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.008 - 0.014</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>0.015 - 0.020</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>0.021 - 0.040</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>0.041 - 0.540</div>',
+        subtitle: "Población/ha", 
+        elem1: '<div><span  style= "color:#a6d96a">▉</span>0 - 149</div>',
+        elem2: '<div><span  style= "color:#1a9641">▉</span>150 - 200</div>', 
+        elem3: '<div><span  style= "color:#f4f466">▉</span>201 - 300</div>',
+        elem4: '<div><span  style= "color:#fdae61">▉</span>301 - 400</div>',
+        elem5: '<div><span  style= "color:#d7191c">▉</span>Mayor 401</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -534,11 +534,11 @@ var legends = {
     B_E_VIDA: {
         title: "Brecha de género esperanza de vida al nacer",
         subtitle: "Relación esperanza de vida al nacer de mujeres y hombres",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0.35 - 1.00</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>1.01- 1.04</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>1.05 - 1.09</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>1.10 - 1.13</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>1.14 - 2.27</div>',
+        elem1: '<div><span  style= "color:#d7191c">▉</span>0.35 - 0.99</div>',
+        elem2: '<div><span  style= "color:#1a9641">▉</span>1.00 - 1.04</div>', 
+        elem3: '<div><span  style= "color:#a6d96a">▉</span>1.05 - 1.09</div>',
+        elem4: '<div><span  style= "color:#f4f466">▉</span>1.10 - 1.13</div>',
+        elem5: '<div><span  style= "color:#fdae61">▉</span>1.14 - 2.27</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -546,11 +546,11 @@ var legends = {
     PARIDAD: {
         title: "Brecha de género años promedio de eduación",
         subtitle: "Relación años promedio educación de mujeres y hombres",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0.00 - 0.68</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.69 - 0.79</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>0.80 - 0.90</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>0.90 - 1.05</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>1.06 - 8.33</div>',
+        elem1: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.90</div>',
+        elem2: '<div><span  style= "color:#1a9641">▉</span>0.91 - 1.06</div>', 
+        elem3: '<div><span  style= "color:#a6d96a">▉</span>1.07 - 1.20</div>',
+        elem4: '<div><span  style= "color:#f4f466">▉</span>1.21 - 1.91</div>',
+        elem5: '<div><span  style= "color:#fdae61">▉</span>1.92 - 8.33</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -594,11 +594,11 @@ var legends = {
     BRECHA_D: {
         title: "Brecha de género desempleo",
         subtitle: "Relación de desempleo mujeres y hombres",
-        elem1: '<div><span  style= "color:#1a9641">▉</span>0 - 0.54</div>',
-        elem2: '<div><span  style= "color:#a6d96a">▉</span>0.55 - 1.54</div>', 
-        elem3: '<div><span  style= "color:#f4f466">▉</span>1.55 - 2.94</div>',
-        elem4: '<div><span  style= "color:#fdae61">▉</span>2.95 - 5.45</div>',
-        elem5: '<div><span  style= "color:#d7191c">▉</span>5.46 - 12.60</div>',
+        elem1: '<div><span  style= "color:#d7191c">▉</span>0.00 - 0.99</div>',
+        elem2: '<div><span  style= "color:#1a9641">▉</span>1.00 - 1.54</div>', 
+        elem3: '<div><span  style= "color:#a6d96a">▉</span>1.55 - 2.56</div>',
+        elem4: '<div><span  style= "color:#f4f466">▉</span>2.57 - 4.71</div>',
+        elem5: '<div><span  style= "color:#fdae61">▉</span>4.72 - 12.60</div>',
         elem6: '',
         elem7: '',
         elem8: "DANE Censo Nacional Población y Vivienda 2018",
@@ -842,11 +842,11 @@ function setProColor(d) {
                     '#d7191c';
     }
     else if (currentStyle === 'DENSIDAD') {
-        return d > 0.040 ? '#d7191c' :
-            d > 0.020 ? '#fdae61' :
-                d > 0.014 ? '#f4f466' :
-                    d > 0.007 ? '#a6d96a' :
-                    '#1a9641';
+        return d > 400 ? '#d7191c' :
+        d > 300? '#fdae61' :
+            d > 200 ? '#f4f466' :
+                d > 149 ? '#1a9641' :
+                '#a6d96a';
     }
     else if (currentStyle === 'INDICE') {
         return d > 71.12 ? '#FCF9BB' :
@@ -884,18 +884,18 @@ function setProColor(d) {
                     '#d7191c';
     }
     else if (currentStyle === 'B_E_VIDA') {
-            return d > 1.13 ? '#d7191c' :
-                    d > 1.09 ? '#fdae61' :
-                        d > 1.04 ? '#f4f466' :
-                            d > 1 ? '#a6d96a' :
-                           '#1a9641';
+            return d > 1.13 ? '#fdae61' :
+                    d > 1.09 ? '#f4f466' :
+                        d > 1.04 ? '#a6d96a' :
+                            d > 0.99 ? '#1a9641' :
+                            '#d7191c';
     }
     else if (currentStyle === 'PARIDAD') {
-        return d > 1.05 ? '#d7191c' :
-                d > 0.90 ? '#fdae61' :
-                    d > 0.79 ? '#f4f466' :
-                        d > 0.68 ? '#a6d96a' :
-                       '#1a9641';
+        return d > 1.91 ? '#fdae61' :
+                d > 1.20 ? '#f4f466' :
+                    d > 1.06 ? '#a6d96a' :
+                        d > 0.90 ? '#1a9641' :
+                        '#d7191c';
     }
     else if (currentStyle === 'M2_ESP_PU') {
         return d > 2.28 ? '#1a9641' :
@@ -919,11 +919,11 @@ function setProColor(d) {
                         '#d7191c';
     }
     else if (currentStyle === 'BRECHA_D') {
-        return d > 5.45 ? '#1a9641' :
-            d > 2.94 ? '#a6d96a' :
-                d > 1.54 ? '#f4f466' :
-                    d > 0.54 ? '#fdae61' :
-                        '#d7191c';
+        return d > 4.71 ? '#fdae61' :
+            d > 2.56 ? '#f4f466' :
+                d > 1.54 ? '#a6d96a' :
+                    d > 0.99 ? '#1a9641' :
+                    '#d7191c';
     }
     else if (currentStyle === 'P_SALUD1') {
         return d > 5000 ? '#d7191c' :
